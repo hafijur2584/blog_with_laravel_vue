@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Category;
+use App\Http\Resources\CategoryResource;
 
 class CategoryController extends Controller
 {
@@ -15,8 +16,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return $categories; 
+        // $categories = Category::paginate(2);
+        // return response()->json([
+        //     'categories' => $categories
+        // ],200);
+        
+        return new CategoryResource(Category::paginate(2));
     }
 
     
@@ -35,6 +40,12 @@ class CategoryController extends Controller
 
 
     }
+    public function edit($id){
+        $category = Category::where('id',$id)->firstOrfail();
+        return response()->json([
+            'category' => $category
+        ],200);
+    }
 
     
     public function show($id)
@@ -46,12 +57,25 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories'
+        ]);
+        $category = Category::where('id',$id)->firstOrfail();
+        $category->name = $request->name;
+        $category->update();
+        return response()->json([
+            'success' => "success"
+        ],200); 
     }
 
     
     public function destroy($id)
     {
-        //
+        $category = Category::where('id',$id)->firstOrfail();
+        // dd($category);
+        $category->delete();
+
+        return response()->json([
+            'delete successfully.'
+        ],200);    }
     }
-}

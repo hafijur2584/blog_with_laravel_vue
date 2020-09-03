@@ -18,4 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/category','Admin\CategoryController');
+Route::apiResource('/category','Admin\CategoryController')->except('destroy');
+Route::get('/category/destroy/{id}','Admin\CategoryController@destroy')->name('category.destroy');
+Route::get('/category/edit/{id}','Admin\CategoryController@edit')->name('category.edit');
+
+Route::apiResource('/post','Admin\PostController')->except('destroy');
+Route::get('/post/destroy/{id}','Admin\PostController@destroy')->name('post.destroy');
+Route::get('/post/edit/{id}','Admin\PostController@edit')->name('post.edit');

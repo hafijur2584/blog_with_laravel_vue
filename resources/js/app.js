@@ -4,15 +4,17 @@ require('./bootstrap');
 import Vue from 'vue'
 
 //support vuex
+import storeData from './store/index'
 import Vuex from 'vuex'
 Vue.use(Vuex)
-const store = new Vuex.Store({
-  
-})
+const store = new Vuex.Store(
+		storeData
+)
 
 //vue router
 import VueRouter from 'vue-router'
 import {routes} from './routes'
+import {filter} from './filter'
 
 Vue.use(VueRouter);
 
@@ -47,5 +49,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

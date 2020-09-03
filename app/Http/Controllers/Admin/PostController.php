@@ -11,9 +11,11 @@ class PostController extends Controller
     
     public function index()
     {
-        $posts = Post::all(); 
-        dd($posts);
-        return $posts;   
+        $posts = Post::with('category','user')->get();
+        
+        return response()->json([
+            'posts' => $posts
+        ],200);   
     }
 
     

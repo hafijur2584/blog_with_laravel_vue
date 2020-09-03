@@ -156,105 +156,31 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
             <router-link to="/home" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
+                <i class="right fa fa-angle-left"></i>
               </p>
             </router-link>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+          
+          <li class="nav-item">
+            <router-link to="/category/list" class="nav-link">
+              <i class="nav-icon fa fa-th"></i>
               <p>
                 Category
-                <i class="fas fa-angle-left right"></i>
               </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <router-link to="/category/create" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Create</p>
-                </router-link>
-              </li>
-              <li class="nav-item">
-                <router-link to="/category/list" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List</p>
-                </router-link>
-              </li>
-              
-            </ul>
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/post" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+            <router-link to="/post/list" class="nav-link">
+              <i class="nav-icon fa fa-th"></i>
               <p>
                 Post
               </p>
             </router-link>
           </li>
           
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/e-commerce.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>E-commerce</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/projects.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-add.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-edit.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/contacts.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contacts</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           
           
         </ul>
