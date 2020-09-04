@@ -21,9 +21,10 @@ export default{
 	},
 	actions:{
 		allCategory(context){
+			// console.log(state.page)
 			axios.get('/api/category')
 			.then((res)=>{
-				context.commit('categories',res.data.data)
+				context.commit('categories',res.data.categories)
 			})
 		},
 		allPost(context){

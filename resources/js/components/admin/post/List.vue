@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <div class="container">
+  <div>
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -31,9 +31,9 @@
                     <td v-if = "post.user">{{post.user.name}}</td>
                     <td v-if = "post.category">{{post.category.name}}</td>
                     <td>{{post.created_at | timeFormat}}</td>
-                    <td width="150"><img style="height:auto;width:40%" :src="post.image" alt=""></td>
+                    <td width="150"><img style="height:auto;width:40%" :src="imgPath(post.image)" alt=""></td>
                     <td width="200">
-                      <a style="cursor:pointer;margin-left:10px;" class="" data-toggle="modal" data-target="#viewModal" @click.prevent="">
+                      <a style="cursor:pointer;margin-left:10px;" class="" data-toggle="modal" data-target="#viewModal1" @click.prevent="showPost(post)">
                         <i class="fa fa-eye"></i>
                       </a>
                       <router-link class="" :to="`/post/edit/${post.id}`">
@@ -62,7 +62,29 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="viewModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Post</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <span><strong>Title: </strong>{{post.title}}</span><br>
+            <span><strong>Created By: </strong>{{user.name}}</span><br>
+            <span><strong>Category: </strong>{{category.name}}</span><br>
+            <span><strong>Date: </strong>{{post.created_at | timeFormat}}</span>
+            <div>
+              <strong>Image: </strong>
+              <img style="width30%;height:auto;" :src="imgPath(post.image)" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <style>
@@ -77,7 +99,10 @@
 export default {
   data(){
     return{
-      
+      post:{},
+      category:{},
+      user:{}
+
     }
   },
 
@@ -93,20 +118,41 @@ export default {
   },
   methods:{
     deletePost(id){
-      axios.get('/api/post/destroy/'+id)
-      .then((res)=>{
-        this.$store.dispatch("allPost")
-        toast.fire({
-          icon: 'success',
-          title: 'Deleted Successfully!'
-        })
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+          axios.get('/api/post/destroy/'+id)
+          .then((res)=>{
+            this.$store.dispatch("allPost")
+            Toast.fire({
+              icon: 'success',
+              title: 'File Deleted Successfully.'
+            })
+          })
+          .catch(()=>{
+            Toast.fire({
+              icon: 'error',
+              title: 'Something!'
+            })
+          })
+          
+        }
       })
-      .catch(()=>{
-        toast.fire({
-          icon: 'error',
-          title: 'Something!'
-        })
-      })
+    },
+    imgPath(img){
+      return '/'+img;
+    },
+    showPost(post){
+      this.post = post
+      this.category = post.category
+      this.user = post.user
     }
     
   }

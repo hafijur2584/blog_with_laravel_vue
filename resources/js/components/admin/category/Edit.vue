@@ -53,13 +53,13 @@ export default {
       .then((res)=>{
         this.form.reset();
         this.$router.push('/category/list')
-        toast.fire({
+        Toast.fire({
           icon: 'success',
           title: 'Updated Successfully!'
         })
       })
       .catch(()=>{
-        toast.fire({
+        Toast.fire({
           icon: 'error',
           title: 'Something!'
         })

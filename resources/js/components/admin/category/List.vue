@@ -42,16 +42,8 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer clearfix">
-              <ul class="pagination pagination-sm m-0 float-right">
-                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">»</a></li>
-              </ul>
-            </div>
+            <pagination ></pagination>
+            
           </div>
         </div>
       </div>
@@ -104,7 +96,7 @@ export default {
   },
   methods:{
     deleteCategory(id){
-      swal.fire({
+      Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',
@@ -117,13 +109,13 @@ export default {
           axios.get('/api/category/destroy/'+id)
           .then((res)=>{
             this.$store.dispatch("allCategory")
-            toast.fire({
+            Toast.fire({
               icon: 'success',
               title: 'File Deleted Successfully.'
             })
           })
           .catch(()=>{
-            toast.fire({
+            Toast.fire({
               icon: 'error',
               title: 'Something!'
             })

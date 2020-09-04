@@ -46,13 +46,13 @@ export default {
             this.form.post('/api/category')
             .then((res)=>{
                 this.form.reset();
-                toast.fire({
+                Toast.fire({
                   icon: 'success',
                   title: 'Created Successfully!'
                 })
             })
             .catch(()=>{
-                toast.fire({
+                Toast.fire({
                   icon: 'error',
                   title: 'Something!'
                 })
