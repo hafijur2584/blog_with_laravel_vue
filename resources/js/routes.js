@@ -8,6 +8,9 @@ import PostCreate from './components/admin/post/Create.vue'
 import PostEdit from './components/admin/post/Edit.vue'
 import PostList from './components/admin/post/List.vue'
 
+
+import PublicHome from './components/public/PublicHome.vue'
+
 export const routes = [
   {
   	path: '/home',
@@ -36,6 +39,13 @@ export const routes = [
   {
     path:'/post/edit/:post_id',
     component:PostEdit
+  },
+
+
+  {
+    path:'/',
+    component:PublicHome
   }
+
 
 ]

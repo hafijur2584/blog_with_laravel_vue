@@ -41,7 +41,7 @@
                     <input type="file" @change = "changeImage($event)" name="newImage" :class="{ 'is-invalid': form.errors.has('image') }">
                     <has-error :form="form" field="image"></has-error>
                   </div>
-                  <img style="width:20%;height:auto;" :src="form.newImage" alt="">
+                  <img style="width:20%;height:auto;" :src="form.image" alt="">
                   <img style="width:20%;height:auto;" :src="`/`+form.image" alt="">
                 </div>
 
@@ -69,8 +69,7 @@ export default {
         title: '',
         category_id:'',
         description:'',
-        image:'',
-        newImage:''
+        image:''
       }),
       categories:{},
       post:{}
@@ -112,7 +111,7 @@ export default {
       }else{
         let reader = new FileReader();
         reader.onload = (e)=> {
-          this.form.newImage = e.target.result
+          this.form.image = e.target.result
         };
 
         reader.readAsDataURL(file);

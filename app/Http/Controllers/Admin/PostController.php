@@ -11,6 +11,9 @@ use Image;
 
 class PostController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('auth');
+    // }
 
     public function index()
     {
@@ -77,28 +80,28 @@ class PostController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        
         $request->validate([
             'title' => 'required|unique:posts',
             'category_id' => 'required',
             'description' => 'required'
         ]);
-
-        if ($request->newImage) {
-            $position = strpos($request->newImage, ';');
-            $sub = substr($request->newImage, 0,$position);
+        $post = Post::findOrfail($id);
+        if ($request->image != $post->image ) {
+            $position = strpos($request->image, ';');
+            $sub = substr($request->image, 0,$position);
             $ext = explode('/', $sub)[1];
             $name = time().".".$ext;
-            $img = Image::make($request->newImage)->resize(280, 200);
+            $img = Image::make($request->image)->resize(280, 200);
             $upload_path = 'upload/post/';
             $image_url = $upload_path.$name;
             $success = $img->save($image_url);
             if($success){
-                $img = Post::where('id',$id)->firstOrfail();
+                $img = $post;
                 $img_path = $img->image;
                 unlink($img_path);
 
-                $post = Post::where('id',$id)->firstOrfail();
+                
                 $post->title = $request->title;
                 $post->category_id = $request->category_id;
                 $post->description = $request->description;
@@ -112,7 +115,7 @@ class PostController extends Controller
             ]);
         }
         else{
-            $post = Post::where('id',$id)->firstOrfail();
+            // $post = Post::where('id',$id)->firstOrfail();
             $post->title = $request->title;
             $post->category_id = $request->category_id;
             $post->description = $request->description;
