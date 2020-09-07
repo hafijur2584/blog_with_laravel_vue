@@ -1,34 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
-<head>
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="/user/img/fav.png">
-    <!-- Author Meta -->
-    <meta name="author" content="colorlib">
-    <!-- Meta Description -->
-    <meta name="description" content="">
-    <!-- Meta Keyword -->
-    <meta name="keywords" content="">
-    <!-- meta character set -->
-    <meta charset="UTF-8">
-    <!-- Site Title -->
-    <title>Blogger</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-    
-    <link rel="stylesheet" href="{{asset('user/css/linearicons.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('user/css/main.css')}}">
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+@include('user.partials._head')
 <body>
     <div id="app">
         <!-- Start Header Area -->
@@ -71,22 +44,7 @@
         </header>
         <!-- End Header Area -->
 
-        <!-- Start top-section Area -->
-        <section class="top-section-area section-gap">
-            <div class="container">
-                <div class="row justify-content-between align-items-center d-flex">
-                    <div class="col-lg-8 top-left">
-                        <h1 class="text-white mb-20">Fashion News</h1>
-                        <ul>
-                            <li><a href="index.html">Home</a><span class="lnr lnr-arrow-right"></span></li>
-                            <li><a href="category.html">Category</a><span class="lnr lnr-arrow-right"></span></li>
-                            <li><a href="single.html">Fashion</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>  
-        </section>
-        <!-- End top-section Area -->
+        
 
 
         <!-- Start post Area -->
@@ -166,17 +124,6 @@
         <!-- End footer Area -->
     </div>
     
-
-
-
-    <script src="{{ asset('user/js/vendor/jquery-2.2.4.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="{{ asset('user/js/vendor/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('user/js/jquery.ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('user/js/parallax.min.js') }}"></script>          
-    <script src="{{ asset('user/js/owl.carousel.min.js') }}"></script>      
-    <script src="{{ asset('user/js/jquery.magnific-popup.min.js') }}"></script>             
-    <script src="{{ asset('user/js/jquery.sticky.js') }}"></script>
-    {{-- <script src="{{ asset('user/js/main.js') }}"></script>   --}}
+    @include('user.partials._script')
 </body>
 </html>

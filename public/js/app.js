@@ -3072,9 +3072,158 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -66115,6 +66264,49 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
+      _c("section", { staticClass: "top-section-area section-gap" }, [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "row justify-content-between align-items-center d-flex"
+            },
+            [
+              _c("div", { staticClass: "col-lg-8 top-left" }, [
+                _c("h1", { staticClass: "text-white mb-20" }, [
+                  _vm._v("Fashion News")
+                ]),
+                _vm._v(" "),
+                _c("ul", [
+                  _c("li", [
+                    _c("a", { attrs: { href: "index.html" } }, [
+                      _vm._v("Home")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "lnr lnr-arrow-right" })
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "category.html" } }, [
+                      _vm._v("Category")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "lnr lnr-arrow-right" })
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "single.html" } }, [
+                      _vm._v("Fashion")
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "post-wrapper pt-100" }, [
         _c("section", { staticClass: "post-area" }, [
           _c("div", { staticClass: "container" }, [
@@ -66138,7 +66330,7 @@ var staticRenderFns = [
                           _vm._v(" "),
                           _c("a", { attrs: { href: "#" } }, [
                             _c("h4", { staticClass: "text-uppercase" }, [
-                              _vm._v("It S Hurricane Season Visiting ")
+                              _vm._v("It S Hurricane Season Visiting")
                             ])
                           ])
                         ]
@@ -66173,8 +66365,9 @@ var staticRenderFns = [
                     _c("div", { staticClass: "thumb" }, [
                       _c("div", { staticClass: "date" }, [
                         _c("span", [_vm._v("20")]),
+                        _vm._v(" "),
                         _c("br"),
-                        _vm._v("Dec\n                                    ")
+                        _vm._v("Dec\n                  ")
                       ]),
                       _vm._v(" "),
                       _c("img", {
@@ -66185,17 +66378,17 @@ var staticRenderFns = [
                     _c("div", { staticClass: "detail" }, [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("h4", { staticClass: "pb-20" }, [
-                          _vm._v("Addiction When Gambling "),
-                          _c("br"),
                           _vm._v(
-                            "\n                                    Becomes A Problem"
-                          )
+                            "\n                      Addiction When Gambling\n                      "
+                          ),
+                          _c("br"),
+                          _vm._v("Becomes A Problem\n                    ")
                         ])
                       ]),
                       _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          "\n                                        inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur.\n                                    "
+                          "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
                         )
                       ]),
                       _vm._v(" "),
@@ -66223,8 +66416,9 @@ var staticRenderFns = [
                     _c("div", { staticClass: "thumb" }, [
                       _c("div", { staticClass: "date" }, [
                         _c("span", [_vm._v("20")]),
+                        _vm._v(" "),
                         _c("br"),
-                        _vm._v("Dec\n                                    ")
+                        _vm._v("Dec\n                  ")
                       ]),
                       _vm._v(" "),
                       _c("img", {
@@ -66235,17 +66429,17 @@ var staticRenderFns = [
                     _c("div", { staticClass: "detail" }, [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("h4", { staticClass: "pb-20" }, [
-                          _vm._v("Addiction When Gambling "),
-                          _c("br"),
                           _vm._v(
-                            "\n                                    Becomes A Problem"
-                          )
+                            "\n                      Addiction When Gambling\n                      "
+                          ),
+                          _c("br"),
+                          _vm._v("Becomes A Problem\n                    ")
                         ])
                       ]),
                       _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          "\n                                        inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur.\n                                    "
+                          "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
                         )
                       ]),
                       _vm._v(" "),
@@ -66273,8 +66467,9 @@ var staticRenderFns = [
                     _c("div", { staticClass: "thumb" }, [
                       _c("div", { staticClass: "date" }, [
                         _c("span", [_vm._v("20")]),
+                        _vm._v(" "),
                         _c("br"),
-                        _vm._v("Dec\n                                    ")
+                        _vm._v("Dec\n                  ")
                       ]),
                       _vm._v(" "),
                       _c("img", {
@@ -66285,17 +66480,17 @@ var staticRenderFns = [
                     _c("div", { staticClass: "detail" }, [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("h4", { staticClass: "pb-20" }, [
-                          _vm._v("Addiction When Gambling "),
-                          _c("br"),
                           _vm._v(
-                            "\n                                    Becomes A Problem"
-                          )
+                            "\n                      Addiction When Gambling\n                      "
+                          ),
+                          _c("br"),
+                          _vm._v("Becomes A Problem\n                    ")
                         ])
                       ]),
                       _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          "\n                                        inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur.\n                                    "
+                          "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
                         )
                       ]),
                       _vm._v(" "),
@@ -66323,8 +66518,9 @@ var staticRenderFns = [
                     _c("div", { staticClass: "thumb" }, [
                       _c("div", { staticClass: "date" }, [
                         _c("span", [_vm._v("20")]),
+                        _vm._v(" "),
                         _c("br"),
-                        _vm._v("Dec\n                                    ")
+                        _vm._v("Dec\n                  ")
                       ]),
                       _vm._v(" "),
                       _c("img", {
@@ -66335,17 +66531,17 @@ var staticRenderFns = [
                     _c("div", { staticClass: "detail" }, [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("h4", { staticClass: "pb-20" }, [
-                          _vm._v("Addiction When Gambling "),
-                          _c("br"),
                           _vm._v(
-                            "\n                                    Becomes A Problem"
-                          )
+                            "\n                      Addiction When Gambling\n                      "
+                          ),
+                          _c("br"),
+                          _vm._v("Becomes A Problem\n                    ")
                         ])
                       ]),
                       _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          "\n                                        inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur.\n                                    "
+                          "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
                         )
                       ]),
                       _vm._v(" "),
@@ -66377,7 +66573,7 @@ var staticRenderFns = [
                           "text-uppercase primary-btn loadmore-btn mt-40 mb-60",
                         attrs: { href: "#" }
                       },
-                      [_vm._v(" Load More Post")]
+                      [_vm._v("Load More Post")]
                     )
                   ])
                 ]),
@@ -66401,17 +66597,19 @@ var staticRenderFns = [
                           _c("div", { staticClass: "detail" }, [
                             _c("a", { attrs: { href: "#" } }, [
                               _c("h4", { staticClass: "pb-20" }, [
-                                _vm._v("Addiction When Gambling "),
+                                _vm._v(
+                                  "\n                          Addiction When Gambling\n                          "
+                                ),
                                 _c("br"),
                                 _vm._v(
-                                  "\n                                            Becomes A Problem"
+                                  "Becomes A Problem\n                        "
                                 )
                               ])
                             ]),
                             _vm._v(" "),
                             _c("p", [
                               _vm._v(
-                                "\n                                                inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur.\n                                            "
+                                "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
                               )
                             ]),
                             _vm._v(" "),
@@ -66454,17 +66652,19 @@ var staticRenderFns = [
                           _c("div", { staticClass: "detail" }, [
                             _c("a", { attrs: { href: "#" } }, [
                               _c("h4", { staticClass: "pb-20" }, [
-                                _vm._v("Addiction When Gambling "),
+                                _vm._v(
+                                  "\n                          Addiction When Gambling\n                          "
+                                ),
                                 _c("br"),
                                 _vm._v(
-                                  "\n                                            Becomes A Problem"
+                                  "Becomes A Problem\n                        "
                                 )
                               ])
                             ]),
                             _vm._v(" "),
                             _c("p", [
                               _vm._v(
-                                "\n                                                inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur.\n                                            "
+                                "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
                               )
                             ]),
                             _vm._v(" "),
@@ -66502,7 +66702,7 @@ var staticRenderFns = [
                                 "text-uppercase primary-btn loadmore-btn mt-70 mb-60",
                               attrs: { href: "#" }
                             },
-                            [_vm._v(" Load More Post")]
+                            [_vm._v("Load More Post")]
                           )
                         ]
                       )
@@ -66544,7 +66744,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", [
                     _vm._v(
-                      "\n                                MCSE boot camps have its supporters and\n                                its detractors. Some people do not understand why you should have to spend money\n                            "
+                      "\n                MCSE boot camps have its supporters and\n                its detractors. Some people do not understand why you should have to spend money\n              "
                     )
                   ]),
                   _vm._v(" "),
@@ -66555,7 +66755,7 @@ var staticRenderFns = [
                           staticClass: "fa fa-facebook",
                           attrs: { "aria-hidden": "true" }
                         }),
-                        _vm._v(" Like")
+                        _vm._v(" Like\n                  ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -66565,7 +66765,7 @@ var staticRenderFns = [
                           staticClass: "fa fa-twitter",
                           attrs: { "aria-hidden": "true" }
                         }),
-                        _vm._v(" follow")
+                        _vm._v(" follow\n                  ")
                       ])
                     ])
                   ])
@@ -66579,49 +66779,63 @@ var staticRenderFns = [
                   _c("ul", [
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Technology "),
+                        _vm._v(
+                          "\n                    Technology\n                    "
+                        ),
                         _c("span", [_vm._v("37")])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Lifestyle "),
+                        _vm._v(
+                          "\n                    Lifestyle\n                    "
+                        ),
                         _c("span", [_vm._v("37")])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Fashion "),
+                        _vm._v(
+                          "\n                    Fashion\n                    "
+                        ),
                         _c("span", [_vm._v("37")])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Art "),
+                        _vm._v(
+                          "\n                    Art\n                    "
+                        ),
                         _c("span", [_vm._v("37")])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Food "),
+                        _vm._v(
+                          "\n                    Food\n                    "
+                        ),
                         _c("span", [_vm._v("37")])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Architecture "),
+                        _vm._v(
+                          "\n                    Architecture\n                    "
+                        ),
                         _c("span", [_vm._v("37")])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Adventure "),
+                        _vm._v(
+                          "\n                    Adventure\n                    "
+                        ),
                         _c("span", [_vm._v("37")])
                       ])
                     ])
@@ -66640,28 +66854,30 @@ var staticRenderFns = [
                       }),
                       _vm._v(" "),
                       _c("p", { staticClass: "mt-20 title text-uppercase" }, [
-                        _vm._v("Home Audio Recording "),
-                        _c("br"),
                         _vm._v(
-                          "\n                                    For Everyone"
-                        )
+                          "\n                    Home Audio Recording\n                    "
+                        ),
+                        _c("br"),
+                        _vm._v("For Everyone\n                  ")
                       ]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v("02 Hours ago "),
+                        _vm._v(
+                          "\n                    02 Hours ago\n                    "
+                        ),
                         _c("span", [
                           _c("i", {
                             staticClass: "fa fa-heart-o",
                             attrs: { "aria-hidden": "true" }
                           }),
                           _vm._v(
-                            "\n                                        06 "
+                            "\n                      06\n                      "
                           ),
                           _c("i", {
                             staticClass: "fa fa-comment-o",
                             attrs: { "aria-hidden": "true" }
                           }),
-                          _vm._v("02")
+                          _vm._v("02\n                    ")
                         ])
                       ]),
                       _vm._v(" "),
@@ -66671,28 +66887,30 @@ var staticRenderFns = [
                         }),
                         _vm._v(" "),
                         _c("p", { staticClass: "mt-20 title text-uppercase" }, [
-                          _vm._v("Home Audio Recording "),
-                          _c("br"),
                           _vm._v(
-                            "\n                                            For Everyone"
-                          )
+                            "\n                      Home Audio Recording\n                      "
+                          ),
+                          _c("br"),
+                          _vm._v("For Everyone\n                    ")
                         ]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v("02 Hours ago "),
+                          _vm._v(
+                            "\n                      02 Hours ago\n                      "
+                          ),
                           _c("span", [
                             _c("i", {
                               staticClass: "fa fa-heart-o",
                               attrs: { "aria-hidden": "true" }
                             }),
                             _vm._v(
-                              "\n                                                06 "
+                              "\n                        06\n                        "
                             ),
                             _c("i", {
                               staticClass: "fa fa-comment-o",
                               attrs: { "aria-hidden": "true" }
                             }),
-                            _vm._v("02")
+                            _vm._v("02\n                      ")
                           ])
                         ]),
                         _vm._v(" "),
@@ -66708,29 +66926,31 @@ var staticRenderFns = [
                             "p",
                             { staticClass: "mt-20 title text-uppercase" },
                             [
-                              _vm._v("Home Audio Recording "),
-                              _c("br"),
                               _vm._v(
-                                "\n                                                    For Everyone"
-                              )
+                                "\n                        Home Audio Recording\n                        "
+                              ),
+                              _c("br"),
+                              _vm._v("For Everyone\n                      ")
                             ]
                           ),
                           _vm._v(" "),
                           _c("p", [
-                            _vm._v("02 Hours ago "),
+                            _vm._v(
+                              "\n                        02 Hours ago\n                        "
+                            ),
                             _c("span", [
                               _c("i", {
                                 staticClass: "fa fa-heart-o",
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                "\n                                                        06 "
+                                "\n                          06\n                          "
                               ),
                               _c("i", {
                                 staticClass: "fa fa-comment-o",
                                 attrs: { "aria-hidden": "true" }
                               }),
-                              _vm._v("02")
+                              _vm._v("02\n                        ")
                             ])
                           ])
                         ])
@@ -66744,49 +66964,63 @@ var staticRenderFns = [
                         _c("ul", [
                           _c("li", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Dec'17 "),
+                              _vm._v(
+                                "\n                          Dec'17\n                          "
+                              ),
                               _c("span", [_vm._v("37")])
                             ])
                           ]),
                           _vm._v(" "),
                           _c("li", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Nov'17 "),
+                              _vm._v(
+                                "\n                          Nov'17\n                          "
+                              ),
                               _c("span", [_vm._v("37")])
                             ])
                           ]),
                           _vm._v(" "),
                           _c("li", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Oct'17 "),
+                              _vm._v(
+                                "\n                          Oct'17\n                          "
+                              ),
                               _c("span", [_vm._v("37")])
                             ])
                           ]),
                           _vm._v(" "),
                           _c("li", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Sept'17 "),
+                              _vm._v(
+                                "\n                          Sept'17\n                          "
+                              ),
                               _c("span", [_vm._v("37")])
                             ])
                           ]),
                           _vm._v(" "),
                           _c("li", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Aug'17 "),
+                              _vm._v(
+                                "\n                          Aug'17\n                          "
+                              ),
                               _c("span", [_vm._v("37")])
                             ])
                           ]),
                           _vm._v(" "),
                           _c("li", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Jul'17 "),
+                              _vm._v(
+                                "\n                          Jul'17\n                          "
+                              ),
                               _c("span", [_vm._v("37")])
                             ])
                           ]),
                           _vm._v(" "),
                           _c("li", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Jun'17 "),
+                              _vm._v(
+                                "\n                          Jun'17\n                          "
+                              ),
                               _c("span", [_vm._v("37")])
                             ])
                           ])
