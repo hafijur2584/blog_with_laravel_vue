@@ -9,6 +9,12 @@ use App\Http\Resources\CategoryResource;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api')->except('login');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,14 +25,12 @@ class CategoryController extends Controller
         $categories = Category::all();
         return response()->json([
             'categories' => $categories
-        ],200);
-        
+        ], 200);
+
         // return new CategoryResource(Category::paginate(2));
     }
 
-    
 
-    
     public function store(Request $request)
     {
         $request->validate([
@@ -36,23 +40,24 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
 
-        return ['ok',200];
+        return ['ok', 200];
 
 
     }
-    public function edit($id){
-        $category = Category::where('id',$id)->firstOrfail();
+
+    public function edit($id)
+    {
+        $category = Category::where('id', $id)->firstOrfail();
         return response()->json([
             'category' => $category
-        ],200);
+        ], 200);
     }
 
-    
+
     public function show($id)
     {
         //
     }
-
 
 
     public function update(Request $request, $id)
@@ -60,22 +65,23 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required|unique:categories'
         ]);
-        $category = Category::where('id',$id)->firstOrfail();
+        $category = Category::where('id', $id)->firstOrfail();
         $category->name = $request->name;
         $category->update();
         return response()->json([
             'success' => "success"
-        ],200); 
+        ], 200);
     }
 
-    
+
     public function destroy($id)
     {
-        $category = Category::where('id',$id)->firstOrfail();
+        $category = Category::where('id', $id)->firstOrfail();
         // dd($category);
         $category->delete();
 
         return response()->json([
             'delete successfully.'
-        ],200);    }
+        ], 200);
     }
+}

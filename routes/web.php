@@ -24,6 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('/api/post','Admin\PostController')->except('destroy');
 
 
-// Route::get('/{path}','HomeController@index')->where('path','.*');
+ Route::get('/{path}','HomeController@index')->where('path','.*');
 
 
