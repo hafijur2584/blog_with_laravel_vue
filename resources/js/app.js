@@ -47,6 +47,7 @@ window.Toast = Toast;
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-master', require('./components/admin/AdminMaster.vue').default);
+Vue.component('admin-login', require('./components/admin/Login.vue').default);
 Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('public-master', require('./components/public/PublicMaster.vue').default);
 

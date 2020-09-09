@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('user.home');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/login', 'HomeController@login')->name('login');
 
 //Route::resource('/api/post','Admin\PostController')->except('destroy');
 
