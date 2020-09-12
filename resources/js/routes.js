@@ -1,4 +1,5 @@
 import AdminHome from './components/admin/AdminHome.vue'
+import Login from './components/admin/Login.vue'
 
 import CategoryCreate from './components/admin/category/Create.vue'
 import CategoryList from './components/admin/category/List.vue'
@@ -11,10 +12,16 @@ import PostList from './components/admin/post/List.vue'
 
 import PublicHome from './components/public/PublicHome.vue'
 
+
+
 export const routes = [
   {
   	path: '/home',
   	component: AdminHome
+  },
+  {
+  	path: '/admin/login',
+  	component: Login
   },
   {
   	path:'/category/create',

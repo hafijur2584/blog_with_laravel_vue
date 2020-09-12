@@ -20,7 +20,7 @@ Route::get('/', function () {
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin/login', 'HomeController@login')->name('login');
+// Route::get('/admin/login', 'HomeController@login')->name('login');
 
 //Route::resource('/api/post','Admin\PostController')->except('destroy');
 

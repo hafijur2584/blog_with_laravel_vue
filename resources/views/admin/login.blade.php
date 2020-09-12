@@ -4,7 +4,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app" class="wrapper">
 
-    <admin-login></admin-login>
+    
 
 </div>
 <!-- ./wrapper -->

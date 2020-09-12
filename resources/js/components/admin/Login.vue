@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
     export default {
         data(){
             return{
@@ -58,15 +59,16 @@
             }
         },
         methods:{
+            ...mapActions({
+                signIn:'auth/signIn'
+            }),
             login(){
-                let headers = {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-                axios.post('/api/auth/login',this.form,headers)
-                    .then((res)=>{
-                        console.log(res.data.access_token);
-                    })
+                this.signIn(this.form)
+                // axios.post('/auth/login',this.form)
+                // .then((res) => {
+                //     console.log(res.data)
+                // })
+                
             }
         }
     };

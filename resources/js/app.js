@@ -9,7 +9,7 @@ import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 VueMarkdownEditor.use(vuepressTheme);
 Vue.use(VueMarkdownEditor);
 
-
+Axios.defaults.baseURL = 'http://blog.test/api'
 
 //support vuex
 import storeData from './store/index'
@@ -34,6 +34,7 @@ Vue.component(AlertError.name, AlertError)
 
 //sweet alert
 import Swal from 'sweetalert2'
+import Axios from 'axios';
 window.Swal = Swal;
 const Toast = Swal.mixin({
   toast: true,
@@ -47,7 +48,7 @@ window.Toast = Toast;
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-master', require('./components/admin/AdminMaster.vue').default);
-Vue.component('admin-login', require('./components/admin/Login.vue').default);
+// Vue.component('admin-login', require('./components/admin/Login.vue').default);
 Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('public-master', require('./components/public/PublicMaster.vue').default);
 
