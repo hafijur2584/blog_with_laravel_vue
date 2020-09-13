@@ -18,6 +18,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store(
 		storeData
 )
+store.dispatch('auth/attempt',localStorage.getItem('token'))
 
 //vue router
 import VueRouter from 'vue-router'
@@ -51,6 +52,10 @@ Vue.component('admin-master', require('./components/admin/AdminMaster.vue').defa
 // Vue.component('admin-login', require('./components/admin/Login.vue').default);
 Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('public-master', require('./components/public/PublicMaster.vue').default);
+
+
+Vue.component('navbar', require('./components/admin/layouts/Navbar.vue').default);
+Vue.component('sidebar', require('./components/admin/layouts/Sidebar.vue').default);
 
 
 const router = new VueRouter({

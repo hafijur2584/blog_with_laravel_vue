@@ -22,28 +22,22 @@ export default {
 	},
 	actions: {
 		allCategory(context) {
-			// console.log(state.page)
-			// let headers = {
-			// 	Auhorization: 'bearer ' + auth.state.token
-			// }
+			
 
 
-			axios({
-                method: 'get', //you can set what request you want to be
-                url: '/category',
-                headers: {
-                  Authorization: 'Bearer ' + auth.state.token
-                }
-              })
+			axios.get('/category')
 				.then((res) => {
 					context.commit('categories', res.data.categories)
 				})
 		},
 		allPost(context) {
-			axios.get('/api/post')
+			axios.get('/post')
 				.then((res) => {
 					context.commit('posts', res.data.posts)
 				})
+		},
+		test(){
+			console.log('i am ok from store')
 		}
 	},
 	modules:{

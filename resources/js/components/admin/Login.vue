@@ -63,11 +63,11 @@ import { mapActions } from 'vuex'
                 signIn:'auth/signIn'
             }),
             login(){
-                this.signIn(this.form)
-                // axios.post('/auth/login',this.form)
-                // .then((res) => {
-                //     console.log(res.data)
-                // })
+                this.signIn(this.form).then(() => {
+                    this.$router.push('/home')
+                }).catch(() => {
+                    console.log('failed')
+                })
                 
             }
         }
