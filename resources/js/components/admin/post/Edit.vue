@@ -76,7 +76,7 @@ export default {
     }
   },
   mounted(){
-    axios.get(`/api/post/edit/${this.$route.params.post_id}`)
+    axios.get(`/post/edit/${this.$route.params.post_id}`)
     .then((res)=>{
       this.post = res.data.post
       this.form.fill(res.data.post)
@@ -85,7 +85,7 @@ export default {
   },
   methods:{
     editValue(){
-      this.form.patch(`/api/post/${this.$route.params.post_id}`)
+      this.form.patch(`/post/${this.$route.params.post_id}`)
       .then((res)=>{
         this.form.reset();
         this.$router.push('/post/list')

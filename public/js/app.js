@@ -2136,7 +2136,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.signIn(this.form).then(function () {
         _this.$router.push('/home');
       })["catch"](function () {
-        console.log('failed');
+        Toast.fire({
+          icon: 'error',
+          title: 'Email Or Password Wrong!'
+        });
       });
     }
   })
@@ -2199,7 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
     addValue: function addValue() {
       var _this = this;
 
-      this.form.post('/api/category').then(function (res) {
+      this.form.post('/category').then(function (res) {
         _this.form.reset();
 
         Toast.fire({
@@ -2272,7 +2275,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("/api/category/edit/".concat(this.$route.params.cat_id)).then(function (res) {
+    axios.get("/category/edit/".concat(this.$route.params.cat_id)).then(function (res) {
       _this.form.fill(res.data.category);
     });
   },
@@ -2280,7 +2283,7 @@ __webpack_require__.r(__webpack_exports__);
     editValue: function editValue() {
       var _this2 = this;
 
-      this.form.patch("/api/category/".concat(this.$route.params.cat_id)).then(function (res) {
+      this.form.patch("/category/".concat(this.$route.params.cat_id)).then(function (res) {
         _this2.form.reset();
 
         _this2.$router.push('/category/list');
@@ -2416,7 +2419,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.value) {
-          axios.get('/api/category/destroy/' + id).then(function (res) {
+          axios.get('/category/destroy/' + id).then(function (res) {
             _this.$store.dispatch("allCategory");
 
             Toast.fire({
@@ -2435,6 +2438,50 @@ __webpack_require__.r(__webpack_exports__);
     showCategory: function showCategory(cat) {
       this.name = cat.name;
       this.date = cat.created_at;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/layouts/Betcon.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/layouts/Betcon.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    logout: function logout() {
+      this.$store.dispatch('auth/logout');
     }
   }
 });
@@ -2605,8 +2652,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.$store.dispatch('test');
+  mounted: function mounted() {// this.$store.dispatch('test')
   }
 });
 
@@ -2813,7 +2859,7 @@ __webpack_require__.r(__webpack_exports__);
     addValue: function addValue() {
       var _this2 = this;
 
-      this.form.post('/api/post').then(function (res) {
+      this.form.post('/post').then(function (res) {
         _this2.form.reset();
 
         Toast.fire({
@@ -2920,7 +2966,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("/api/post/edit/".concat(this.$route.params.post_id)).then(function (res) {
+    axios.get("/post/edit/".concat(this.$route.params.post_id)).then(function (res) {
       _this.post = res.data.post;
 
       _this.form.fill(res.data.post);
@@ -2932,7 +2978,7 @@ __webpack_require__.r(__webpack_exports__);
     editValue: function editValue() {
       var _this2 = this;
 
-      this.form.patch("/api/post/".concat(this.$route.params.post_id)).then(function (res) {
+      this.form.patch("/post/".concat(this.$route.params.post_id)).then(function (res) {
         _this2.form.reset();
 
         _this2.$router.push('/post/list');
@@ -3109,7 +3155,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.value) {
-          axios.get('/api/post/destroy/' + id).then(function (res) {
+          axios.get('/post/destroy/' + id).then(function (res) {
             _this.$store.dispatch("allPost");
 
             Toast.fire({
@@ -66773,6 +66819,58 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/layouts/Betcon.vue?vue&type=template&id=1b7665c2&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/layouts/Betcon.vue?vue&type=template&id=1b7665c2& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticStyle: { cursor: "pointer" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.logout()
+                      }
+                    }
+                  },
+                  [_vm._v("Logout")]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/layouts/Navbar.vue?vue&type=template&id=7df2c9fe&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/layouts/Navbar.vue?vue&type=template&id=7df2c9fe& ***!
@@ -85442,8 +85540,7 @@ axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'http://blog.te
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_5__["default"]);
-var store = new vuex__WEBPACK_IMPORTED_MODULE_5__["default"].Store(_store_index__WEBPACK_IMPORTED_MODULE_4__["default"]);
-store.dispatch('auth/attempt', localStorage.getItem('token')); //vue router
+var store = new vuex__WEBPACK_IMPORTED_MODULE_5__["default"].Store(_store_index__WEBPACK_IMPORTED_MODULE_4__["default"]); //vue router
 
 
 
@@ -85472,15 +85569,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('pagination', __webpack_req
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('public-master', __webpack_require__(/*! ./components/public/PublicMaster.vue */ "./resources/js/components/public/PublicMaster.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('navbar', __webpack_require__(/*! ./components/admin/layouts/Navbar.vue */ "./resources/js/components/admin/layouts/Navbar.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sidebar', __webpack_require__(/*! ./components/admin/layouts/Sidebar.vue */ "./resources/js/components/admin/layouts/Sidebar.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('betcon', __webpack_require__(/*! ./components/admin/layouts/Betcon.vue */ "./resources/js/components/admin/layouts/Betcon.vue")["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__["default"]({
   routes: _routes__WEBPACK_IMPORTED_MODULE_7__["routes"],
   // short for `routes: routes`
   mode: 'history'
 });
-var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app',
-  router: router,
-  store: store
+window.hh = router;
+store.dispatch('auth/attempt', localStorage.getItem('token')).then(function () {
+  var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+    el: '#app',
+    router: router,
+    store: store
+  });
 });
 
 /***/ }),
@@ -85522,6 +85623,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     SET_USER: function SET_USER(state, user) {
       state.user = user;
+    },
+    logInRemove: function logInRemove(state, data) {
+      localStorage.removeItem('token');
+      state.token = null;
+      Toast.fire({
+        icon: 'success',
+        title: 'Logout Successfully!'
+      });
+      hh.push('/admin/login');
     }
   },
   actions: {
@@ -85550,43 +85660,73 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     attempt: function attempt(_ref2, token) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var commit, response;
+        var commit, state, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                commit = _ref2.commit;
+                commit = _ref2.commit, state = _ref2.state;
                 commit('SET_TOKEN', token);
 
-                if (token) {
-                  axios.defaults.headers.common['Authorization'] = 'bearer ' + token;
-                  localStorage.setItem('token', token);
-                } else {
-                  axios.defaults.headers.common['Authorization'] = null;
-                  localStorage.removeItem('token');
+                if (!token) {
+                  _context2.next = 19;
+                  break;
                 }
 
-                _context2.prev = 3;
-                _context2.next = 6;
+                axios.defaults.headers.common['Authorization'] = 'bearer ' + token;
+                localStorage.setItem('token', token);
+                Toast.fire({
+                  icon: 'success',
+                  title: 'LogIn Successfully!'
+                });
+                _context2.prev = 6;
+                _context2.next = 9;
                 return axios.get('auth/me');
 
-              case 6:
+              case 9:
                 response = _context2.sent;
                 commit('SET_USER', response.data);
-                _context2.next = 13;
+                _context2.next = 17;
                 break;
 
-              case 10:
-                _context2.prev = 10;
-                _context2.t0 = _context2["catch"](3);
-                console.log('failed');
-
               case 13:
+                _context2.prev = 13;
+                _context2.t0 = _context2["catch"](6);
+                commit('SET_TOKEN', null);
+                commit('SET_USER', null);
+
+              case 17:
+                _context2.next = 21;
+                break;
+
+              case 19:
+                axios.defaults.headers.common['Authorization'] = null;
+                localStorage.removeItem('token');
+
+              case 21:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[3, 10]]);
+        }, _callee2, null, [[6, 13]]);
+      }))();
+    },
+    logout: function logout(context) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                axios.post('/auth/logout').then(function (res) {
+                  context.commit('logInRemove', res.data);
+                });
+
+              case 1:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     }
   }
@@ -86126,6 +86266,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/layouts/Betcon.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/admin/layouts/Betcon.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Betcon_vue_vue_type_template_id_1b7665c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Betcon.vue?vue&type=template&id=1b7665c2& */ "./resources/js/components/admin/layouts/Betcon.vue?vue&type=template&id=1b7665c2&");
+/* harmony import */ var _Betcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Betcon.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/layouts/Betcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Betcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Betcon_vue_vue_type_template_id_1b7665c2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Betcon_vue_vue_type_template_id_1b7665c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/layouts/Betcon.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/layouts/Betcon.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/admin/layouts/Betcon.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Betcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Betcon.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/layouts/Betcon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Betcon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/layouts/Betcon.vue?vue&type=template&id=1b7665c2&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/admin/layouts/Betcon.vue?vue&type=template&id=1b7665c2& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Betcon_vue_vue_type_template_id_1b7665c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Betcon.vue?vue&type=template&id=1b7665c2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/layouts/Betcon.vue?vue&type=template&id=1b7665c2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Betcon_vue_vue_type_template_id_1b7665c2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Betcon_vue_vue_type_template_id_1b7665c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/layouts/Navbar.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/admin/layouts/Navbar.vue ***!
@@ -86655,6 +86864,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_post_Edit_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/admin/post/Edit.vue */ "./resources/js/components/admin/post/Edit.vue");
 /* harmony import */ var _components_admin_post_List_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/admin/post/List.vue */ "./resources/js/components/admin/post/List.vue");
 /* harmony import */ var _components_public_PublicHome_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/public/PublicHome.vue */ "./resources/js/components/public/PublicHome.vue");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth */ "./resources/js/auth.js");
+
 
 
 
@@ -86666,28 +86877,92 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [{
   path: '/home',
-  component: _components_admin_AdminHome_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  component: _components_admin_AdminHome_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_auth__WEBPACK_IMPORTED_MODULE_9__["default"].state.token) {
+      return next({
+        name: 'login'
+      });
+    }
+
+    next();
+  }
 }, {
   path: '/admin/login',
-  component: _components_admin_Login_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  component: _components_admin_Login_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  name: 'login'
 }, {
   path: '/category/create',
-  component: _components_admin_category_Create_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _components_admin_category_Create_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_auth__WEBPACK_IMPORTED_MODULE_9__["default"].state.token) {
+      return next({
+        name: 'login'
+      });
+    }
+
+    next();
+  }
 }, {
   path: '/category/list',
-  component: _components_admin_category_List_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_admin_category_List_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_auth__WEBPACK_IMPORTED_MODULE_9__["default"].state.token) {
+      return next({
+        name: 'login'
+      });
+    }
+
+    next();
+  }
 }, {
   path: '/category/edit/:cat_id',
-  component: _components_admin_category_Edit_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _components_admin_category_Edit_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_auth__WEBPACK_IMPORTED_MODULE_9__["default"].state.token) {
+      return next({
+        name: 'login'
+      });
+    }
+
+    next();
+  }
 }, {
   path: '/post/create',
-  component: _components_admin_post_Create_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _components_admin_post_Create_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_auth__WEBPACK_IMPORTED_MODULE_9__["default"].state.token) {
+      return next({
+        name: 'login'
+      });
+    }
+
+    next();
+  }
 }, {
   path: '/post/list',
-  component: _components_admin_post_List_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+  component: _components_admin_post_List_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_auth__WEBPACK_IMPORTED_MODULE_9__["default"].state.token) {
+      return next({
+        name: 'login'
+      });
+    }
+
+    next();
+  }
 }, {
   path: '/post/edit/:post_id',
-  component: _components_admin_post_Edit_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+  component: _components_admin_post_Edit_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_auth__WEBPACK_IMPORTED_MODULE_9__["default"].state.token) {
+      return next({
+        name: 'login'
+      });
+    }
+
+    next();
+  }
 }, {
   path: '/',
   component: _components_public_PublicHome_vue__WEBPACK_IMPORTED_MODULE_8__["default"]

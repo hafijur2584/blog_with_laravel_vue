@@ -42,14 +42,14 @@ export default {
     }
   },
   mounted(){
-    axios.get(`/api/category/edit/${this.$route.params.cat_id}`)
+    axios.get(`/category/edit/${this.$route.params.cat_id}`)
     .then((res)=>{
       this.form.fill(res.data.category)
     })
   },
   methods:{
     editValue(){
-      this.form.patch(`/api/category/${this.$route.params.cat_id}`)
+      this.form.patch(`/category/${this.$route.params.cat_id}`)
       .then((res)=>{
         this.form.reset();
         this.$router.push('/category/list')

@@ -43,7 +43,7 @@ export default {
     },
     methods:{
         addValue(){
-            this.form.post('/api/category')
+            this.form.post('/category')
             .then((res)=>{
                 this.form.reset();
                 Toast.fire({

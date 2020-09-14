@@ -106,7 +106,7 @@ export default {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.value) {
-          axios.get('/api/category/destroy/'+id)
+          axios.get('/category/destroy/'+id)
           .then((res)=>{
             this.$store.dispatch("allCategory")
             Toast.fire({

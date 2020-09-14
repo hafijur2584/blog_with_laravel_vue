@@ -12,40 +12,99 @@ import PostList from './components/admin/post/List.vue'
 
 import PublicHome from './components/public/PublicHome.vue'
 
+import store from './auth'
+
 
 
 export const routes = [
   {
   	path: '/home',
-  	component: AdminHome
+    component: AdminHome,
+    beforeEnter: (to, from, next) => {
+      if(!store.state.token){
+        return next({
+          name:'login'
+        })
+      }
+      next()
+    }
   },
   {
   	path: '/admin/login',
-  	component: Login
+    component: Login,
+    name:'login'
   },
   {
   	path:'/category/create',
-  	component:CategoryCreate
+    component:CategoryCreate,
+    beforeEnter: (to, from, next) => {
+      if(!store.state.token){
+        return next({
+          name:'login'
+        })
+      }
+      next()
+    }
   },
   {
   	path:'/category/list',
-  	component:CategoryList
+    component:CategoryList,
+    beforeEnter: (to, from, next) => {
+      if(!store.state.token){
+        return next({
+          name:'login'
+        })
+      }
+      next()
+    }
   },
   {
     path:'/category/edit/:cat_id',
-    component:CategoryEdit
+    component:CategoryEdit,
+    beforeEnter: (to, from, next) => {
+      if(!store.state.token){
+        return next({
+          name:'login'
+        })
+      }
+      next()
+    }
   },
   {
     path:'/post/create',
-    component:PostCreate
+    component:PostCreate,
+    beforeEnter: (to, from, next) => {
+      if(!store.state.token){
+        return next({
+          name:'login'
+        })
+      }
+      next()
+    }
   },
   {
     path:'/post/list',
-    component:PostList
+    component:PostList,
+    beforeEnter: (to, from, next) => {
+      if(!store.state.token){
+        return next({
+          name:'login'
+        })
+      }
+      next()
+    }
   },
   {
     path:'/post/edit/:post_id',
-    component:PostEdit
+    component:PostEdit,
+    beforeEnter: (to, from, next) => {
+      if(!store.state.token){
+        return next({
+          name:'login'
+        })
+      }
+      next()
+    }
   },
 
 

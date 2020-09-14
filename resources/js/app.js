@@ -18,7 +18,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store(
 		storeData
 )
-store.dispatch('auth/attempt',localStorage.getItem('token'))
+
 
 //vue router
 import VueRouter from 'vue-router'
@@ -56,16 +56,20 @@ Vue.component('public-master', require('./components/public/PublicMaster.vue').d
 
 Vue.component('navbar', require('./components/admin/layouts/Navbar.vue').default);
 Vue.component('sidebar', require('./components/admin/layouts/Sidebar.vue').default);
+Vue.component('betcon', require('./components/admin/layouts/Betcon.vue').default);
 
 
 const router = new VueRouter({
   routes, // short for `routes: routes`
   mode: 'history'
 })
+window.hh = router
 
-
-const app = new Vue({
+store.dispatch('auth/attempt',localStorage.getItem('token')).then(() => {
+  const app = new Vue({
     el: '#app',
     router,
     store
 });
+})
+

@@ -22,7 +22,7 @@ export default {
 	},
 	actions: {
 		allCategory(context) {
-			
+
 
 
 			axios.get('/category')
@@ -36,11 +36,12 @@ export default {
 					context.commit('posts', res.data.posts)
 				})
 		},
-		test(){
+
+		test() {
 			console.log('i am ok from store')
 		}
 	},
-	modules:{
+	modules: {
 		auth
 	}
 }

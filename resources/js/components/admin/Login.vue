@@ -66,7 +66,10 @@ import { mapActions } from 'vuex'
                 this.signIn(this.form).then(() => {
                     this.$router.push('/home')
                 }).catch(() => {
-                    console.log('failed')
+                    Toast.fire({
+                    icon: 'error',
+                    title: 'Email Or Password Wrong!'
+                  })
                 })
                 
             }

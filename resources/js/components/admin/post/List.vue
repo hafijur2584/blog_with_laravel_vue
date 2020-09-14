@@ -128,7 +128,7 @@ export default {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.value) {
-          axios.get('/api/post/destroy/'+id)
+          axios.get('/post/destroy/'+id)
           .then((res)=>{
             this.$store.dispatch("allPost")
             Toast.fire({

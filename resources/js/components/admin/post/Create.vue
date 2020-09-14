@@ -102,7 +102,7 @@ export default {
     },
 
     addValue(){
-      this.form.post('/api/post')
+      this.form.post('/post')
       .then((res)=>{
         this.form.reset();
         Toast.fire({
