@@ -2,7 +2,8 @@ import auth from '../auth'
 export default {
 	state: {
 		category: [],
-		post: []
+		post: [],
+		blogpost:[]
 	},
 	getters: {
 		getCategtory(state) {
@@ -10,6 +11,9 @@ export default {
 		},
 		getPost(state) {
 			return state.post
+		},
+		getBlogPost(state){
+			return state.blogpost
 		}
 	},
 	mutations: {
@@ -18,6 +22,9 @@ export default {
 		},
 		posts(state, data) {
 			return state.post = data
+		},
+		blogPosts(state,data){
+			return state.blogpost = data
 		}
 	},
 	actions: {
@@ -27,7 +34,8 @@ export default {
 
 			axios.get('/category')
 				.then((res) => {
-					context.commit('categories', res.data.categories)
+					// console.log(res.data)
+					context.commit('categories', res.data)
 				})
 		},
 		allPost(context) {
@@ -36,10 +44,16 @@ export default {
 					context.commit('posts', res.data.posts)
 				})
 		},
-
-		test() {
-			console.log('i am ok from store')
+		allBlogPost(context){
+			axios.get('/blogpost')
+			.then((res) => {
+				context.commit('blogPosts',res.data.blogposts)
+			})
+		},
+		pagination(context){
+			
 		}
+
 	},
 	modules: {
 		auth

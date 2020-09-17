@@ -36,6 +36,10 @@ export default {
         async signIn({ dispatch }, data) {
             let response = await axios.post('/auth/login', data)
             dispatch('attempt', response.data.access_token)
+            Toast.fire({
+                icon: 'success',
+                title: 'LogIn Successfully!'
+              })
 
         },
 
@@ -44,10 +48,6 @@ export default {
             if (token) {
                 axios.defaults.headers.common['Authorization'] = 'bearer ' + token
                 localStorage.setItem('token', token)
-                Toast.fire({
-                    icon: 'success',
-                    title: 'LogIn Successfully!'
-                  })
 
 
                   try {

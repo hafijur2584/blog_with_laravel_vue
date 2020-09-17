@@ -22,7 +22,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(category,index) in getCategtory" :key="category.id">
+                  <tr v-for="(category,index) in getCategtory" :key="category.id" v-if="getCategtory.length">
                     <td>{{index+1}}</td>
                     <td width="300">{{category.name}}</td>
                     <td width="300">{{category.created_at | timeFormat}}</td>
@@ -90,7 +90,8 @@ export default {
   },
   computed:{
     getCategtory(){
-      return this.$store.getters.getCategtory
+      return this.$store.getters.getCategtory.data
+      console.log(this.$store.getters.getCategtory.meta)
     }
     
   },

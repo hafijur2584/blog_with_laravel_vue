@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Model\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 
 class CategoryController extends Controller
@@ -22,12 +22,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return response()->json([
-            'categories' => $categories
-        ], 200);
+        // $categories = Category::all();
+        // return response()->json([
+        //     'categories' => $categories
+        // ], 200);
 
-        // return new CategoryResource(Category::paginate(2));
+        return new CategoryResource(Category::paginate(2));
     }
 
 

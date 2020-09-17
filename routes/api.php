@@ -40,3 +40,7 @@ Route::get('/category/edit/{id}','Admin\CategoryController@edit')->name('categor
 Route::apiResource('/post','Admin\PostController')->except('destroy');
 Route::get('/post/destroy/{id}','Admin\PostController@destroy')->name('post.destroy');
 Route::get('/post/edit/{id}','Admin\PostController@edit')->name('post.edit');
+
+
+//user
+Route::get('/blogpost','User\BlogPostController@index');

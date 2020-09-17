@@ -1,40 +1,49 @@
 <template>
-    <div>
-        <!-- /.card-body -->
-        <div class="card-footer clearfix">
-          <ul class="pagination pagination-sm m-0 float-right">
-            <li class="page-item"><a class="page-link" href="#">«</a></li>
-            <li class="page-item" v-for = "p in meta.last_page">
-                <a class="page-link" href="#" @click.prevent = "changePage(p)">{{p}}</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">»</a></li>
-        </ul>
+  <div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+      <ul v-if="meta" class="pagination pagination-sm m-0 float-right">
+        <li class="page-item">
+          <a class="page-link" href="#">«</a>
+        </li>
+          <li style="display:inline" class="page-item" v-for="(p,index) in meta.last_page" :key = "index">
+          <a class="page-link" href="#" @click.prevent="changePage(p)">{{p}}</a>
+        </li>
+        <!-- <li v-if="meta">{{ meta.current_page}}</li> -->
+        <li class="page-item">
+          <a class="page-link" href="#">»</a>
+        </li>
+      </ul>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            meta:{}
-        }
-    },
-    mounted(){
+  data() {
+    return {
+    //   meta: {},
+    };
+  },
+  mounted() {
+      
 
-            // console.log(this.meta)
-
-        },
-        created(){
-            
-        },
-        computed:{
-
-        },
-        methods:{
-            changePage(page){
-                
-            }
-        }
-    }
-    </script>
+  },
+  created() {
+    
+  },
+  computed: {
+      meta: {
+          get(){
+              
+              if(this.$store.getters.getCategtory.meta){
+                  return this.$store.getters.getCategtory.meta
+              }
+          }
+      }
+  },
+  methods: {
+    changePage(page) {},
+  },
+};
+</script>
