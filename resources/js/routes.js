@@ -117,6 +117,10 @@ export const routes = [
     path:'/singlepost/:id',
     component:SinglePost
 
+  },
+  {
+    path:'/blog/category/:id',
+    component:PublicHome
   }
 
 

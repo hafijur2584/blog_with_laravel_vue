@@ -13,73 +13,27 @@
                 </div>
               </div>
 
-              <div class="single_widget about_widget">
-                <img src="/user/img/asset/s-img.jpg" alt />
-                <h2 class="text-uppercase">Adele Gonzalez</h2>
-                <p>
-                  MCSE boot camps have its supporters and
-                  its detractors. Some people do not understand why you should have to spend money
-                </p>
-                <div class="social-link">
-                  <a href="#">
-                    <button class="btn">
-                      <i class="fa fa-facebook" aria-hidden="true"></i> Like
-                    </button>
-                  </a>
-                  <a href="#">
-                    <button class="btn">
-                      <i class="fa fa-twitter" aria-hidden="true"></i> follow
-                    </button>
-                  </a>
-                </div>
-              </div>
-              <div class="single_widget cat_widget">
-                <h4 class="text-uppercase pb-20">post categories</h4>
-                <ul>
-                  <li>
-                    <a href="#">
-                      Technology
-                      <span>37</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Lifestyle
-                      <span>37</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Fashion
-                      <span>37</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Art
-                      <span>37</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Food
-                      <span>37</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Architecture
-                      <span>37</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Adventure
-                      <span>37</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <!--<div class="single_widget about_widget">-->
+                <!--<img src="/user/img/asset/s-img.jpg" alt />-->
+                <!--<h2 class="text-uppercase">Adele Gonzalez</h2>-->
+                <!--<p>-->
+                  <!--MCSE boot camps have its supporters and-->
+                  <!--its detractors. Some people do not understand why you should have to spend money-->
+                <!--</p>-->
+                <!--<div class="social-link">-->
+                  <!--<a href="#">-->
+                    <!--<button class="btn">-->
+                      <!--<i class="fa fa-facebook" aria-hidden="true"></i> Like-->
+                    <!--</button>-->
+                  <!--</a>-->
+                  <!--<a href="#">-->
+                    <!--<button class="btn">-->
+                      <!--<i class="fa fa-twitter" aria-hidden="true"></i> follow-->
+                    <!--</button>-->
+                  <!--</a>-->
+                <!--</div>-->
+              <!--</div>-->
+                <category></category>
 
               <div class="single_widget recent_widget">
                 <h4 class="text-uppercase pb-20">Recent Posts</h4>
@@ -217,6 +171,7 @@
 </template>
 
 <script>
+  import category from './Category'
 export default {
     data(){
         return{
@@ -225,6 +180,9 @@ export default {
     },
     mounted(){
         
-    }
+    },
+  components:{
+      category
+  }
 }
 </script>

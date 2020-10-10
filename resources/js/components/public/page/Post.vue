@@ -87,7 +87,20 @@ export default {
       return this.$store.getters.getBlogPost;
     },
   },
-  methods: {},
+  methods: {
+    getAllCategoryPost(){
+      if (this.$route.params.id != null){
+        this.$store.dispatch('allPostByCatId',this.$route.params.id)
+      }else{
+        this.$store.dispatch("allBlogPost");
+      }
+    }
+  },
+  watch:{
+    $route(to,from){
+      this.getAllCategoryPost();
+    }
+  }
 };
 </script>
 <style>

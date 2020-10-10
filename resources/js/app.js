@@ -9,7 +9,7 @@ import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 VueMarkdownEditor.use(vuepressTheme);
 Vue.use(VueMarkdownEditor);
 
-Axios.defaults.baseURL = 'http://blog.test/api'
+Axios.defaults.baseURL = 'http://localhost:8000/api'
 
 //support vuex
 import storeData from './store/index'

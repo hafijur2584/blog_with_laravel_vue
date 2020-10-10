@@ -4,7 +4,8 @@ export default {
 		category: [],
 		post: [],
 		blogpost:[],
-		singlepost:[]
+		singlepost:[],
+		allCategoory:[]
 	},
 	getters: {
 		getCategtory(state) {
@@ -18,6 +19,11 @@ export default {
 		},
 		getSinglePost(state){
 			return state.singlepost
+		},
+
+		//frontend
+		getCategories(state){
+			return state.allCategoory
 		}
 	},
 	mutations: {
@@ -32,7 +38,16 @@ export default {
 		},
 		singlepost(state, data){
 			return state.singlepost = data
+		},
+
+		//forntend
+		allCategory(state,data){
+			return state.allCategoory = data
+		},
+		allPostByCatId(state,payload){
+			return state.blogpost = payload
 		}
+
 	},
 	actions: {
 		allCategory(context) {
@@ -65,6 +80,20 @@ export default {
 		},
 		pagination(context){
 			
+		},
+
+		//for users
+		category(context){
+			axios.get('/categories')
+				.then((res) => {
+					context.commit('allCategory',res.data)
+				});
+		},
+		allPostByCatId(context,payload){
+			axios.get('/categories/'+payload)
+				.then((res) => {
+					context.commit('allPostByCatId',res.data)
+				})
 		}
 
 	},
