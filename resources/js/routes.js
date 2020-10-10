@@ -11,6 +11,7 @@ import PostList from './components/admin/post/List.vue'
 
 
 import PublicHome from './components/public/PublicHome.vue'
+import SinglePost from './components/public/page/SinglePost'
 
 import store from './auth'
 
@@ -111,6 +112,11 @@ export const routes = [
   {
     path:'/',
     component:PublicHome
+  },
+  {
+    path:'/singlepost/:id',
+    component:SinglePost
+
   }
 
 

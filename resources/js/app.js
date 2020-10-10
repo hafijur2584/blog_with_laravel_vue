@@ -61,7 +61,7 @@ Vue.component('betcon', require('./components/admin/layouts/Betcon.vue').default
 
 const router = new VueRouter({
   routes, // short for `routes: routes`
-  mode: 'history'
+  // mode: 'history'
 })
 window.hh = router
 

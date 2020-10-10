@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user.home');
 });
-
+Route::get('/', 'HomeController@userHome')->name('userHome');
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -25,6 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('/api/post','Admin\PostController')->except('destroy');
 
 
- Route::get('/{path}','HomeController@index')->where('path','.*');
+//  Route::get('/{path}','HomeController@index')->where('path','.*');
 
 

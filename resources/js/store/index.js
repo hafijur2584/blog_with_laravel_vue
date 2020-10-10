@@ -3,7 +3,8 @@ export default {
 	state: {
 		category: [],
 		post: [],
-		blogpost:[]
+		blogpost:[],
+		singlepost:[]
 	},
 	getters: {
 		getCategtory(state) {
@@ -14,6 +15,9 @@ export default {
 		},
 		getBlogPost(state){
 			return state.blogpost
+		},
+		getSinglePost(state){
+			return state.singlepost
 		}
 	},
 	mutations: {
@@ -25,6 +29,9 @@ export default {
 		},
 		blogPosts(state,data){
 			return state.blogpost = data
+		},
+		singlepost(state, data){
+			return state.singlepost = data
 		}
 	},
 	actions: {
@@ -49,6 +56,12 @@ export default {
 			.then((res) => {
 				context.commit('blogPosts',res.data.blogposts)
 			})
+		},
+		getPostById(context,id){
+			axios.get(`/blogpost/${id}`).then((res) => {
+				context.commit('singlepost',res.data)
+			  });
+			
 		},
 		pagination(context){
 			

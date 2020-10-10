@@ -14,4 +14,9 @@ class BlogPostController extends Controller
             'blogposts' => $posts
         ],200);
     }
+
+    public function post($id){
+        $post = Post::with('user','category')->where('id',$id)->firstOrfail();
+        return $post;
+    }
 }

@@ -44,3 +44,4 @@ Route::get('/post/edit/{id}','Admin\PostController@edit')->name('post.edit');
 
 //user
 Route::get('/blogpost','User\BlogPostController@index');
+Route::get('/blogpost/{id}','User\BlogPostController@post');

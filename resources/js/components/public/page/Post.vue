@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-8">
     <div class="post-lists">
-      <div class="single-list flex-row d-flex" v-for="(post,i) in blogpost" :key="i">
+      <div class="single-list flex-row d-flex" v-for="(post) in blogpost" :key="post.id">
         <div class="thumb">
           <div class="date">
             <span>{{post.created_at | day}}</span>
@@ -10,9 +10,9 @@
           <img :src="`${post.image}`" alt />
         </div>
         <div class="detail">
-          <a href="#">
+          <router-link :to="`/singlepost/${post.id}`">
             <h4 class="pb-20">{{post.title}}</h4>
-          </a>
+          </router-link>
           <p>{{post.description | sortForm(200,'...')}}</p>
           <p class="footer pt-20">
             <i class="fa fa-user" aria-hidden="true"></i>
