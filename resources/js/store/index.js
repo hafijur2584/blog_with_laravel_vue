@@ -46,6 +46,9 @@ export default {
 		},
 		allPostByCatId(state,payload){
 			return state.blogpost = payload
+		},
+		searchByKey(state,data){
+			return state.blogpost = data
 		}
 
 	},
@@ -94,6 +97,12 @@ export default {
 				.then((res) => {
 					context.commit('allPostByCatId',res.data)
 				})
+		},
+		searchPost(context, payload){
+			axios.get('/search?s=' + payload)
+			.then((res) => {
+				context.commit('searchByKey',res.data)
+			})
 		}
 
 	},

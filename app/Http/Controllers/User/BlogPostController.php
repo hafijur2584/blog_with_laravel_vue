@@ -28,4 +28,9 @@ class BlogPostController extends Controller
         $posts = Post::with('user','category')->where('category_id',$id)->orderBy('id','desc')->get();
         return $posts;
     }
+    public function searchPost(){
+        $item = \Request::get('s');
+        $posts = Post::with('user','category')->where('title','LIKE',"%$item%")->orWhere('description','LIKE',"%$item%")->orderBy('id','desc')->get();
+        return $posts;
+    }
 }

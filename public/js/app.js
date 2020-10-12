@@ -3426,6 +3426,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Category__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Category */ "./resources/js/components/public/page/Category.vue");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3599,9 +3607,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      keyword: ""
+    };
+  },
+  methods: {
+    realSearch: lodash__WEBPACK_IMPORTED_MODULE_1___default.a.debounce(function () {
+      this.$store.dispatch("searchPost", this.keyword);
+    }, 1000)
   },
   mounted: function mounted() {},
   components: {
@@ -69009,32 +69025,60 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "col-lg-4 sidebar-area" },
-    [_vm._m(0), _vm._v(" "), _c("category"), _vm._v(" "), _vm._m(1)],
+    [
+      _c("div", { staticClass: "single_widget search_widget" }, [
+        _c("div", { attrs: { id: "imaginary_container" } }, [
+          _c("div", { staticClass: "input-group stylish-input-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.keyword,
+                  expression: "keyword"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Search" },
+              domProps: { value: _vm.keyword },
+              on: {
+                keyup: _vm.realSearch,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.keyword = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "input-group-addon" }, [
+              _c(
+                "button",
+                {
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.realSearch($event)
+                    }
+                  }
+                },
+                [_c("span", { staticClass: "lnr lnr-magnifier" })]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("category"),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
     1
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "single_widget search_widget" }, [
-      _c("div", { attrs: { id: "imaginary_container" } }, [
-        _c("div", { staticClass: "input-group stylish-input-group" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "input-group-addon" }, [
-            _c("button", { attrs: { type: "submit" } }, [
-              _c("span", { staticClass: "lnr lnr-magnifier" })
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -69049,26 +69093,24 @@ var staticRenderFns = [
           _c("img", { attrs: { src: "/user/img/asset/slider.jpg", alt: "" } }),
           _vm._v(" "),
           _c("p", { staticClass: "mt-20 title text-uppercase" }, [
-            _vm._v(
-              "\n                  Home Audio Recording\n                  "
-            ),
+            _vm._v("\n          Home Audio Recording\n          "),
             _c("br"),
-            _vm._v("For Everyone\n                ")
+            _vm._v("For Everyone\n        ")
           ]),
           _vm._v(" "),
           _c("p", [
-            _vm._v("\n                  02 Hours ago\n                  "),
+            _vm._v("\n          02 Hours ago\n          "),
             _c("span", [
               _c("i", {
                 staticClass: "fa fa-heart-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v("\n                    06\n                    "),
+              _vm._v("\n            06\n            "),
               _c("i", {
                 staticClass: "fa fa-comment-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v("02\n                  ")
+              _vm._v("02\n          ")
             ])
           ]),
           _vm._v(" "),
@@ -69078,28 +69120,24 @@ var staticRenderFns = [
             }),
             _vm._v(" "),
             _c("p", { staticClass: "mt-20 title text-uppercase" }, [
-              _vm._v(
-                "\n                    Home Audio Recording\n                    "
-              ),
+              _vm._v("\n            Home Audio Recording\n            "),
               _c("br"),
-              _vm._v("For Everyone\n                  ")
+              _vm._v("For Everyone\n          ")
             ]),
             _vm._v(" "),
             _c("p", [
-              _vm._v(
-                "\n                    02 Hours ago\n                    "
-              ),
+              _vm._v("\n            02 Hours ago\n            "),
               _c("span", [
                 _c("i", {
                   staticClass: "fa fa-heart-o",
                   attrs: { "aria-hidden": "true" }
                 }),
-                _vm._v("\n                      06\n                      "),
+                _vm._v("\n              06\n              "),
                 _c("i", {
                   staticClass: "fa fa-comment-o",
                   attrs: { "aria-hidden": "true" }
                 }),
-                _vm._v("02\n                    ")
+                _vm._v("02\n            ")
               ])
             ]),
             _vm._v(" "),
@@ -69109,30 +69147,24 @@ var staticRenderFns = [
               }),
               _vm._v(" "),
               _c("p", { staticClass: "mt-20 title text-uppercase" }, [
-                _vm._v(
-                  "\n                      Home Audio Recording\n                      "
-                ),
+                _vm._v("\n              Home Audio Recording\n              "),
                 _c("br"),
-                _vm._v("For Everyone\n                    ")
+                _vm._v("For Everyone\n            ")
               ]),
               _vm._v(" "),
               _c("p", [
-                _vm._v(
-                  "\n                      02 Hours ago\n                      "
-                ),
+                _vm._v("\n              02 Hours ago\n              "),
                 _c("span", [
                   _c("i", {
                     staticClass: "fa fa-heart-o",
                     attrs: { "aria-hidden": "true" }
                   }),
-                  _vm._v(
-                    "\n                        06\n                        "
-                  ),
+                  _vm._v("\n                06\n                "),
                   _c("i", {
                     staticClass: "fa fa-comment-o",
                     attrs: { "aria-hidden": "true" }
                   }),
-                  _vm._v("02\n                      ")
+                  _vm._v("02\n              ")
                 ])
               ])
             ])
@@ -69146,63 +69178,49 @@ var staticRenderFns = [
             _c("ul", [
               _c("li", [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(
-                    "\n                        Dec'17\n                        "
-                  ),
+                  _vm._v("\n                Dec'17\n                "),
                   _c("span", [_vm._v("37")])
                 ])
               ]),
               _vm._v(" "),
               _c("li", [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(
-                    "\n                        Nov'17\n                        "
-                  ),
+                  _vm._v("\n                Nov'17\n                "),
                   _c("span", [_vm._v("37")])
                 ])
               ]),
               _vm._v(" "),
               _c("li", [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(
-                    "\n                        Oct'17\n                        "
-                  ),
+                  _vm._v("\n                Oct'17\n                "),
                   _c("span", [_vm._v("37")])
                 ])
               ]),
               _vm._v(" "),
               _c("li", [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(
-                    "\n                        Sept'17\n                        "
-                  ),
+                  _vm._v("\n                Sept'17\n                "),
                   _c("span", [_vm._v("37")])
                 ])
               ]),
               _vm._v(" "),
               _c("li", [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(
-                    "\n                        Aug'17\n                        "
-                  ),
+                  _vm._v("\n                Aug'17\n                "),
                   _c("span", [_vm._v("37")])
                 ])
               ]),
               _vm._v(" "),
               _c("li", [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(
-                    "\n                        Jul'17\n                        "
-                  ),
+                  _vm._v("\n                Jul'17\n                "),
                   _c("span", [_vm._v("37")])
                 ])
               ]),
               _vm._v(" "),
               _c("li", [
                 _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(
-                    "\n                        Jun'17\n                        "
-                  ),
+                  _vm._v("\n                Jun'17\n                "),
                   _c("span", [_vm._v("37")])
                 ])
               ])
@@ -86290,7 +86308,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 _kangc_v_md_editor__WEBPACK_IMPORTED_MODULE_1___default.a.use(_kangc_v_md_editor_lib_theme_vuepress_js__WEBPACK_IMPORTED_MODULE_3___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_kangc_v_md_editor__WEBPACK_IMPORTED_MODULE_1___default.a);
-axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'http://localhost:8000/api'; //support vuex
+axios__WEBPACK_IMPORTED_MODULE_11___default.a.defaults.baseURL = 'http://blog.test/api'; //support vuex
 
 
 
@@ -88089,6 +88107,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     allPostByCatId: function allPostByCatId(state, payload) {
       return state.blogpost = payload;
+    },
+    searchByKey: function searchByKey(state, data) {
+      return state.blogpost = data;
     }
   },
   actions: {
@@ -88124,6 +88145,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/categories/' + payload).then(function (res) {
         context.commit('allPostByCatId', res.data);
       });
+    },
+    searchPost: function searchPost(context, payload) {
+      axios.get('/search?s=' + payload).then(function (res) {
+        context.commit('searchByKey', res.data);
+      });
     }
   },
   modules: {
@@ -88151,8 +88177,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\hafij_web\htdocs\blog_with_laravel_vue\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\hafij_web\htdocs\blog_with_laravel_vue\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\blog\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\blog\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
