@@ -45,9 +45,9 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr v-for="(category,index) in getCategtory" :key="category.id" v-if="getCategtory.length">
-                    <td>{{index+1}}</td>
+                <tbody v-if="getCategtory.data">
+                  <tr v-for="(category) in getCategtory.data" :key="category.id">
+                    <td>{{category.id}}</td>
                     <td width="300">{{category.name}}</td>
                     <td width="300">{{category.created_at | timeFormat}}</td>
                     <td>
@@ -66,8 +66,11 @@
                 </tbody>
               </table>
             </div>
-            <pagination ></pagination>
-            
+                        
+                        <!-- /.card-body -->
+            <div class="card-footer clearfix">
+              <pagination class="float-right" v-if="getCategtory" :data="getCategtory" :limit="4" :size="'small'" @pagination-change-page="getResults"></pagination>
+            </div>
           </div>
         </div>
       </div>
@@ -106,22 +109,32 @@ export default {
     return{
       name:'',
       date:'',
-      keyword:''
+      keyword:'',
+      laravelData:{}
     }
   },
 
   mounted() {
-    this.$store.dispatch("allCategory")
+    
 
   },
   computed:{
     getCategtory(){
       return this.$store.getters.getCategtory
-      console.log(this.$store.getters.getCategtory.meta)
     }
     
   },
+  created() {
+            this.getResults();
+        },
   methods:{
+    getResults(page) {
+                if (typeof page === 'undefined') {
+                    page = 1;
+                }
+                this.$store.dispatch("allCategory",page)
+      
+            },
     CategorySearch:_.debounce(function () {
       this.$store.dispatch("adminSearchCategory", this.keyword);
     }, 1000),

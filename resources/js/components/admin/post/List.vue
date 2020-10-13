@@ -53,9 +53,9 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr v-for="(post, index) in getPost" :key="post.id">
-                    <td>{{ index + 1 }}</td>
+                <tbody v-if="getPost">
+                  <tr v-for="(post) in getPost.data" :key="post.id">
+                    <td>{{ post.id }}</td>
                     <td>{{ post.title | sortForm(10, "...") }}</td>
                     <td v-if="post.user">{{ post.user.name }}</td>
                     <td v-if="post.category">{{ post.category.name }}</td>
@@ -92,16 +92,14 @@
                 </tbody>
               </table>
             </div>
+
+            
+
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-              <ul class="pagination pagination-sm m-0 float-right">
-                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">»</a></li>
-              </ul>
+              <pagination class="float-right" v-if="getPost" :data="getPost" :limit="4" :size="'small'" @pagination-change-page="getResults"></pagination>
             </div>
+            
           </div>
         </div>
       </div>
@@ -173,14 +171,24 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch("allPost");
+    
   },
   computed: {
     getPost() {
       return this.$store.getters.getPost;
     },
   },
+  created() {
+            this.getResults();
+        },
   methods: {
+    getResults(page) {
+                if (typeof page === 'undefined') {
+                    page = 1;
+                }
+                this.$store.dispatch("allPost",page);
+      
+            },
     postSearch: _.debounce(function () {
       this.$store.dispatch("adminSearchPost", this.keyword);
     }, 1000),

@@ -25,7 +25,7 @@
                       <label>Category</label>
                       <select name="category_id" class="form-control" v-model="form.category_id" :class="{ 'is-invalid': form.errors.has('category_id') }">
                         <option disabled="" value="">Select One</option>
-                        <option :value="cat.id" v-for = "cat in getCategtory">{{cat.name}}</option>
+                        <option :value="cat.id" v-for = "(cat) in getCategtory.data" :key="cat.id">{{cat.name}}</option>
                       </select>
                       <has-error :form="form" field="category_id"></has-error>
                     </div>

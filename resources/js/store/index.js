@@ -1,8 +1,8 @@
 import auth from '../auth'
 export default {
 	state: {
-		category: [],
-		post: [],
+		category: {},
+		post: {},
 		blogpost:[],
 		singlepost:[],
 		allCategoory:[]
@@ -59,15 +59,13 @@ export default {
 
 	},
 	actions: {
-		allCategory(context) {
+		allCategory(context,payload) {
 
-
-
-			axios.get('/category')
-				.then((res) => {
-					// console.log(res.data)
-					context.commit('categories', res.data)
-				})
+			axios.get('/category?page=' + payload)
+			.then(response => {
+				// this.laravelData = response.data;
+				context.commit('categories', response.data)
+			})
 		},
 		adminSearchCategory(context,payload){
 			axios.get('/admin/searchcategory?s='+payload)
@@ -76,11 +74,17 @@ export default {
 			})
 		}
 		,
-		allPost(context) {
-			axios.get('/post')
-				.then((res) => {
-					context.commit('posts', res.data.posts)
-				})
+		allPost(context,payload) {
+			axios.get('/post?page=' + payload)
+			.then(response => {
+				// this.laravelData = response.data;
+				context.commit('posts', response.data.posts)
+			})
+
+			// axios.get('/post')
+			// 	.then((res) => {
+			// 		context.commit('posts', res.data.posts)
+			// 	})
 		},
 		adminSearchPost(context,payload){
 			axios.get('/admin/searchpost?s='+payload)
