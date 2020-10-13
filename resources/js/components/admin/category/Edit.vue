@@ -52,7 +52,7 @@ export default {
       this.form.patch(`/category/${this.$route.params.cat_id}`)
       .then((res)=>{
         this.form.reset();
-        this.$router.push('/category/list')
+        this.$router.push('/admin/category/list')
         Toast.fire({
           icon: 'success',
           title: 'Updated Successfully!'

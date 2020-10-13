@@ -64,7 +64,7 @@ import { mapActions } from 'vuex'
             }),
             login(){
                 this.signIn(this.form).then(() => {
-                    this.$router.push('/home')
+                    this.$router.push('/admin/home')
                 }).catch(() => {
                     Toast.fire({
                     icon: 'error',

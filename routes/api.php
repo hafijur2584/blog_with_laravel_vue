@@ -36,10 +36,12 @@ Route::group([
 Route::apiResource('/category','Admin\CategoryController')->except('destroy');
 Route::get('/category/destroy/{id}','Admin\CategoryController@destroy')->name('category.destroy');
 Route::get('/category/edit/{id}','Admin\CategoryController@edit')->name('category.edit');
+Route::get('/admin/searchcategory','Admin\CategoryController@searchCategory');
 
 Route::apiResource('/post','Admin\PostController')->except('destroy');
 Route::get('/post/destroy/{id}','Admin\PostController@destroy')->name('post.destroy');
 Route::get('/post/edit/{id}','Admin\PostController@edit')->name('post.edit');
+Route::get('/admin/searchpost','Admin\PostController@searchPost');
 
 
 //user

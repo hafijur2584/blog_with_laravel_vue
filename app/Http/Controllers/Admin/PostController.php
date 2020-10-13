@@ -142,4 +142,11 @@ class PostController extends Controller
         $post->delete();
         return "success";
     }
+
+    public function searchPost(){
+        $item = $_GET['s'];
+        $posts = Post::with('category', 'user')->where('title','LIKE',"%$item%")
+        ->orWhere('description','LIKE',"%$item%")->get();
+        return $posts;
+    }
 }

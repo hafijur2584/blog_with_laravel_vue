@@ -5,9 +5,33 @@
         <div class="col-md-10 offset-1">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Category List</h3>
-              <div class="pull-right">
-                <router-link type="button" class="btn bg-gradient-success btn-sm text-white" to="/category/create">Create</router-link>
+              <h3 class="card-title mr-5">Category List</h3>
+
+              <!-- SEARCH FORM -->
+              <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                  <input
+                    @keyup="CategorySearch"
+                    v-model="keyword"
+                    class="form-control form-control-navbar"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-navbar"
+                      @click.prevent="CategorySearch"
+                      type="submit"
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div style="margin-top: -2%" class="pull-right">
+                <router-link type="button" class="btn bg-gradient-success btn-sm text-white" to="/admin/category/create">Create</router-link>
               </div>
             </div>
             <!-- /.card-header -->
@@ -30,7 +54,7 @@
                       <a style="cursor:pointer;margin-left:10px;" class="" data-toggle="modal" data-target="#viewModal" @click.prevent="showCategory(category)">
                         <i class="fa fa-eye"></i>
                       </a>
-                      <router-link class="" :to="`/category/edit/${category.id}`">
+                      <router-link class="" :to="`/admin/category/edit/${category.id}`">
                         <i class="fa fa-edit"></i>
                       </router-link>
                       <a style="cursor:pointer;margin-right:10px;" class="" @click.prevent="deleteCategory(category.id)">
@@ -76,11 +100,13 @@
 </style>
 
 <script>
+import _ from 'lodash'
 export default {
   data(){
     return{
       name:'',
-      date:''
+      date:'',
+      keyword:''
     }
   },
 
@@ -90,12 +116,16 @@ export default {
   },
   computed:{
     getCategtory(){
-      return this.$store.getters.getCategtory.data
+      return this.$store.getters.getCategtory
       console.log(this.$store.getters.getCategtory.meta)
     }
     
   },
   methods:{
+    CategorySearch:_.debounce(function () {
+      this.$store.dispatch("adminSearchCategory", this.keyword);
+    }, 1000),
+    
     deleteCategory(id){
       Swal.fire({
         title: 'Are you sure?',

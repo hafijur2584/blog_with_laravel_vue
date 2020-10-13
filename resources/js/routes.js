@@ -19,7 +19,7 @@ import store from './auth'
 
 export const routes = [
   {
-  	path: '/home',
+  	path: '/admin/home',
     component: AdminHome,
     beforeEnter: (to, from, next) => {
       if(!store.state.token){
@@ -36,7 +36,7 @@ export const routes = [
     name:'login'
   },
   {
-  	path:'/category/create',
+  	path:'/admin/category/create',
     component:CategoryCreate,
     beforeEnter: (to, from, next) => {
       if(!store.state.token){
@@ -48,7 +48,7 @@ export const routes = [
     }
   },
   {
-  	path:'/category/list',
+  	path:'/admin/category/list',
     component:CategoryList,
     beforeEnter: (to, from, next) => {
       if(!store.state.token){
@@ -60,7 +60,7 @@ export const routes = [
     }
   },
   {
-    path:'/category/edit/:cat_id',
+    path:'/admin/category/edit/:cat_id',
     component:CategoryEdit,
     beforeEnter: (to, from, next) => {
       if(!store.state.token){
@@ -72,7 +72,7 @@ export const routes = [
     }
   },
   {
-    path:'/post/create',
+    path:'/admin/post/create',
     component:PostCreate,
     beforeEnter: (to, from, next) => {
       if(!store.state.token){
@@ -84,7 +84,7 @@ export const routes = [
     }
   },
   {
-    path:'/post/list',
+    path:'/admin/post/list',
     component:PostList,
     beforeEnter: (to, from, next) => {
       if(!store.state.token){
@@ -96,7 +96,7 @@ export const routes = [
     }
   },
   {
-    path:'/post/edit/:post_id',
+    path:'/admin/post/edit/:post_id',
     component:PostEdit,
     beforeEnter: (to, from, next) => {
       if(!store.state.token){

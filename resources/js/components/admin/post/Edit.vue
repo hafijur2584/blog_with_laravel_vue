@@ -88,7 +88,7 @@ export default {
       this.form.patch(`/post/${this.$route.params.post_id}`)
       .then((res)=>{
         this.form.reset();
-        this.$router.push('/post/list')
+        this.$router.push('/admin/post/list')
         Toast.fire({
           icon: 'success',
           title: 'Updated Successfully!'

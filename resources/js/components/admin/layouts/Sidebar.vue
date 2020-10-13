@@ -40,7 +40,7 @@
             <!-- Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library-->
             <li class="nav-item has-treeview menu-open">
-              <router-link to="/home" class="nav-link active">
+              <router-link to="/admin/home" class="nav-link active">
                 <i class="nav-icon fa fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -50,13 +50,13 @@
             </li>
 
             <li class="nav-item">
-              <router-link to="/category/list" class="nav-link">
+              <router-link to="/admin/category/list" class="nav-link">
                 <i class="nav-icon fa fa-th"></i>
                 <p>Category</p>
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/post/list" class="nav-link">
+              <router-link to="/admin/post/list" class="nav-link">
                 <i class="nav-icon fa fa-th"></i>
                 <p>Post</p>
               </router-link>

@@ -22,12 +22,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $categories = Category::all();
-        // return response()->json([
-        //     'categories' => $categories
-        // ], 200);
+        $categories = Category::all();
+        return $categories;
 
-        return new CategoryResource(Category::paginate(2));
+        // return new CategoryResource(Category::paginate(2));
     }
 
 
@@ -83,5 +81,10 @@ class CategoryController extends Controller
         return response()->json([
             'delete successfully.'
         ], 200);
+    }
+    public function searchCategory(){
+        $item = $_GET['s'];
+        $categories = Category::where('name','LIKE',"%$item%")->get();
+        return $categories;
     }
 }

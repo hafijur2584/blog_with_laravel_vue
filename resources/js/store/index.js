@@ -30,7 +30,13 @@ export default {
 		categories(state, data) {
 			return state.category = data
 		},
+		searchCategoryByAdmin(state, data){
+			return state.category = data
+		},
 		posts(state, data) {
+			return state.post = data
+		},
+		searchPostByAdmin(state, data){
 			return state.post = data
 		},
 		blogPosts(state,data){
@@ -63,12 +69,26 @@ export default {
 					context.commit('categories', res.data)
 				})
 		},
+		adminSearchCategory(context,payload){
+			axios.get('/admin/searchcategory?s='+payload)
+			.then((res) => {
+				context.commit('searchCategoryByAdmin',res.data)
+			})
+		}
+		,
 		allPost(context) {
 			axios.get('/post')
 				.then((res) => {
 					context.commit('posts', res.data.posts)
 				})
 		},
+		adminSearchPost(context,payload){
+			axios.get('/admin/searchpost?s='+payload)
+			.then((res) => {
+				context.commit('searchPostByAdmin',res.data)
+			})
+		}
+		,
 		allBlogPost(context){
 			axios.get('/blogpost')
 			.then((res) => {

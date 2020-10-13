@@ -2145,7 +2145,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       this.signIn(this.form).then(function () {
-        _this.$router.push('/home');
+        _this.$router.push('/admin/home');
       })["catch"](function () {
         Toast.fire({
           icon: 'error',
@@ -2297,7 +2297,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.patch("/category/".concat(this.$route.params.cat_id)).then(function (res) {
         _this2.form.reset();
 
-        _this2.$router.push('/category/list');
+        _this2.$router.push('/admin/category/list');
 
         Toast.fire({
           icon: 'success',
@@ -2324,6 +2324,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2401,11 +2403,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       name: '',
-      date: ''
+      date: '',
+      keyword: ''
     };
   },
   mounted: function mounted() {
@@ -2413,11 +2441,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     getCategtory: function getCategtory() {
-      return this.$store.getters.getCategtory.data;
+      return this.$store.getters.getCategtory;
       console.log(this.$store.getters.getCategtory.meta);
     }
   },
   methods: {
+    CategorySearch: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
+      this.$store.dispatch("adminSearchCategory", this.keyword);
+    }, 1000),
     deleteCategory: function deleteCategory(id) {
       var _this = this;
 
@@ -2993,7 +3024,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.patch("/post/".concat(this.$route.params.post_id)).then(function (res) {
         _this2.form.reset();
 
-        _this2.$router.push('/post/list');
+        _this2.$router.push('/admin/post/list');
 
         Toast.fire({
           icon: 'success',
@@ -3040,6 +3071,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3137,12 +3170,79 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post: {},
       category: {},
-      user: {}
+      user: {},
+      keyword: ""
     };
   },
   mounted: function mounted() {
@@ -3154,37 +3254,40 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    postSearch: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
+      this.$store.dispatch("adminSearchPost", this.keyword);
+    }, 1000),
     deletePost: function deletePost(id) {
       var _this = this;
 
       Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          axios.get('/post/destroy/' + id).then(function (res) {
+          axios.get("/post/destroy/" + id).then(function (res) {
             _this.$store.dispatch("allPost");
 
             Toast.fire({
-              icon: 'success',
-              title: 'File Deleted Successfully.'
+              icon: "success",
+              title: "File Deleted Successfully."
             });
           })["catch"](function () {
             Toast.fire({
-              icon: 'error',
-              title: 'Something!'
+              icon: "error",
+              title: "Something!"
             });
           });
         }
       });
     },
     imgPath: function imgPath(img) {
-      return '/' + img;
+      return "/" + img;
     },
     showPost: function showPost(post) {
       this.post = post;
@@ -3879,10 +3982,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    this.$store.dispatch('getPostById', this.$route.params.id);
+    this.$store.dispatch("getPostById", this.$route.params.id);
   },
   methods: {},
   computed: {
@@ -66946,20 +67077,71 @@ var render = function() {
             { staticClass: "card" },
             [
               _c("div", { staticClass: "card-header" }, [
-                _c("h3", { staticClass: "card-title" }, [
+                _c("h3", { staticClass: "card-title mr-5" }, [
                   _vm._v("Category List")
+                ]),
+                _vm._v(" "),
+                _c("form", { staticClass: "form-inline ml-3" }, [
+                  _c("div", { staticClass: "input-group input-group-sm" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.keyword,
+                          expression: "keyword"
+                        }
+                      ],
+                      staticClass: "form-control form-control-navbar",
+                      attrs: {
+                        type: "search",
+                        placeholder: "Search",
+                        "aria-label": "Search"
+                      },
+                      domProps: { value: _vm.keyword },
+                      on: {
+                        keyup: _vm.CategorySearch,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.keyword = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group-append" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-navbar",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.CategorySearch($event)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-search" })]
+                      )
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "pull-right" },
+                  {
+                    staticClass: "pull-right",
+                    staticStyle: { "margin-top": "-2%" }
+                  },
                   [
                     _c(
                       "router-link",
                       {
                         staticClass:
                           "btn bg-gradient-success btn-sm text-white",
-                        attrs: { type: "button", to: "/category/create" }
+                        attrs: { type: "button", to: "/admin/category/create" }
                       },
                       [_vm._v("Create")]
                     )
@@ -67019,7 +67201,7 @@ var render = function() {
                                   "router-link",
                                   {
                                     attrs: {
-                                      to: "/category/edit/" + category.id
+                                      to: "/admin/category/edit/" + category.id
                                     }
                                   },
                                   [_c("i", { staticClass: "fa fa-edit" })]
@@ -67591,7 +67773,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link active",
-                        attrs: { to: "/home" }
+                        attrs: { to: "/admin/home" }
                       },
                       [
                         _c("i", {
@@ -67618,7 +67800,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
-                        attrs: { to: "/category/list" }
+                        attrs: { to: "/admin/category/list" }
                       },
                       [
                         _c("i", { staticClass: "nav-icon fa fa-th" }),
@@ -67636,7 +67818,10 @@ var render = function() {
                   [
                     _c(
                       "router-link",
-                      { staticClass: "nav-link", attrs: { to: "/post/list" } },
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/post/list" }
+                      },
                       [
                         _c("i", { staticClass: "nav-icon fa fa-th" }),
                         _vm._v(" "),
@@ -68187,17 +68372,70 @@ var render = function() {
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header" }, [
-              _c("h3", { staticClass: "card-title" }, [_vm._v("Post List")]),
+              _c("h3", { staticClass: "card-title mr-5" }, [
+                _vm._v("Post List")
+              ]),
+              _vm._v(" "),
+              _c("form", { staticClass: "form-inline ml-3" }, [
+                _c("div", { staticClass: "input-group input-group-sm" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.keyword,
+                        expression: "keyword"
+                      }
+                    ],
+                    staticClass: "form-control form-control-navbar",
+                    attrs: {
+                      type: "search",
+                      placeholder: "Search",
+                      "aria-label": "Search"
+                    },
+                    domProps: { value: _vm.keyword },
+                    on: {
+                      keyup: _vm.postSearch,
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.keyword = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-navbar",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.postSearch($event)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-search" })]
+                    )
+                  ])
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "pull-right" },
+                {
+                  staticClass: "pull-right",
+                  staticStyle: { "margin-top": "-2%" }
+                },
                 [
                   _c(
                     "router-link",
                     {
                       staticClass: "btn bg-gradient-success btn-sm text-white",
-                      attrs: { type: "button", to: "/post/create" }
+                      attrs: { type: "button", to: "/admin/post/create" }
                     },
                     [_vm._v("Create")]
                   )
@@ -68268,7 +68506,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "router-link",
-                            { attrs: { to: "/post/edit/" + post.id } },
+                            { attrs: { to: "/admin/post/edit/" + post.id } },
                             [_c("i", { staticClass: "fa fa-edit" })]
                           ),
                           _vm._v(" "),
@@ -69292,86 +69530,104 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "post-wrapper pt-100" }, [
-      _c("section", { staticClass: "post-area" }, [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            { staticClass: "row justify-content-center d-flex" },
-            [
-              _c("div", { staticClass: "col-lg-8" }, [
-                _c("div", { staticClass: "single-page-post" }, [
-                  _c("img", {
-                    staticClass: "img-fluid",
-                    attrs: { src: "" + _vm.post.image, alt: "" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "top-wrapper" }, [
-                    _c(
-                      "div",
-                      { staticClass: "row d-flex justify-content-between" },
-                      [
-                        _c(
-                          "h2",
-                          { staticClass: "col-lg-8 col-md-12 text-uppercase" },
-                          [_vm._v(_vm._s(_vm.post.title))]
-                        ),
-                        _vm._v(" "),
+      _vm.post
+        ? _c("section", { staticClass: "post-area" }, [
+            _c("div", { staticClass: "container" }, [
+              _c(
+                "div",
+                { staticClass: "row justify-content-center d-flex" },
+                [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("div", { staticClass: "single-page-post" }, [
+                      _vm.post.image
+                        ? _c("img", {
+                            staticClass: "img-fluid",
+                            attrs: { src: "" + _vm.post.image, alt: "" }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "top-wrapper" }, [
                         _c(
                           "div",
-                          {
-                            staticClass:
-                              "col-lg-4 col-md-12 right-side d-flex justify-content-end"
-                          },
+                          { staticClass: "row d-flex justify-content-between" },
                           [
-                            _c("div", { staticClass: "desc" }, [
-                              _vm.post.user
-                                ? _c("h2", [_vm._v(_vm._s(_vm.post.user.name))])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.post.user
-                                ? _c("h3", [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm._f("timeFormat")(
-                                          _vm.post.user.created_at
-                                        )
-                                      )
-                                    )
-                                  ])
-                                : _vm._e()
-                            ]),
+                            _c(
+                              "h2",
+                              {
+                                staticClass: "col-lg-8 col-md-12 text-uppercase"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.post.title) +
+                                    "\n                  "
+                                )
+                              ]
+                            ),
                             _vm._v(" "),
-                            _vm._m(0)
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-lg-4 col-md-12 right-side d-flex justify-content-end"
+                              },
+                              [
+                                _c("div", { staticClass: "desc" }, [
+                                  _vm.post.user
+                                    ? _c("h2", [
+                                        _vm._v(_vm._s(_vm.post.user.name))
+                                      ])
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _vm.post.user
+                                    ? _c("h3", [
+                                        _vm._v(
+                                          "\n                        " +
+                                            _vm._s(
+                                              _vm._f("timeFormat")(
+                                                _vm.post.user.created_at
+                                              )
+                                            ) +
+                                            "\n                      "
+                                        )
+                                      ])
+                                    : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _vm._m(0)
+                              ]
+                            )
                           ]
                         )
-                      ]
-                    )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _vm.post
+                        ? _c("div", { staticClass: "single-post-content" }, [
+                            _c(
+                              "p",
+                              { staticStyle: { "text-align": "justify" } },
+                              [_vm._v(_vm._s(_vm.post.description))]
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._m(4)
+                    ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm.post
-                    ? _c("div", { staticClass: "single-post-content" }, [
-                        _c("p", { staticStyle: { "text-align": "justify" } }, [
-                          _vm._v(_vm._s(_vm.post.description))
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _vm._m(4)
-                ])
-              ]),
-              _vm._v(" "),
-              _c("sidebar")
-            ],
-            1
-          )
-        ])
-      ])
+                  _c("sidebar")
+                ],
+                1
+              )
+            ])
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -69490,7 +69746,9 @@ var staticRenderFns = [
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "comment" }, [
-                        _vm._v("Never say goodbye till the end comes!")
+                        _vm._v(
+                          "\n                              Never say goodbye till the end comes!\n                            "
+                        )
                       ])
                     ])
                   ]
@@ -69537,7 +69795,9 @@ var staticRenderFns = [
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "comment" }, [
-                        _vm._v("Never say goodbye till the end comes!")
+                        _vm._v(
+                          "\n                              Never say goodbye till the end comes!\n                            "
+                        )
                       ])
                     ])
                   ]
@@ -69584,7 +69844,9 @@ var staticRenderFns = [
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "comment" }, [
-                        _vm._v("Never say goodbye till the end comes!")
+                        _vm._v(
+                          "\n                              Never say goodbye till the end comes!\n                            "
+                        )
                       ])
                     ])
                   ]
@@ -69631,7 +69893,9 @@ var staticRenderFns = [
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "comment" }, [
-                        _vm._v("Never say goodbye till the end comes!")
+                        _vm._v(
+                          "\n                              Never say goodbye till the end comes!\n                            "
+                        )
                       ])
                     ])
                   ]
@@ -69678,7 +69942,9 @@ var staticRenderFns = [
                       ]),
                       _vm._v(" "),
                       _c("p", { staticClass: "comment" }, [
-                        _vm._v("Never say goodbye till the end comes!")
+                        _vm._v(
+                          "\n                              Never say goodbye till the end comes!\n                            "
+                        )
                       ])
                     ])
                   ]
@@ -86344,9 +86610,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('navbar', __webpack_require
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sidebar', __webpack_require__(/*! ./components/admin/layouts/Sidebar.vue */ "./resources/js/components/admin/layouts/Sidebar.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('betcon', __webpack_require__(/*! ./components/admin/layouts/Betcon.vue */ "./resources/js/components/admin/layouts/Betcon.vue")["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__["default"]({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_7__["routes"] // short for `routes: routes`
-  // mode: 'history'
-
+  routes: _routes__WEBPACK_IMPORTED_MODULE_7__["routes"],
+  // short for `routes: routes`
+  mode: 'history'
 });
 window.hh = router;
 store.dispatch('auth/attempt', localStorage.getItem('token')).then(function () {
@@ -87951,7 +88217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [{
-  path: '/home',
+  path: '/admin/home',
   component: _components_admin_AdminHome_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_auth__WEBPACK_IMPORTED_MODULE_10__["default"].state.token) {
@@ -87967,7 +88233,7 @@ var routes = [{
   component: _components_admin_Login_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   name: 'login'
 }, {
-  path: '/category/create',
+  path: '/admin/category/create',
   component: _components_admin_category_Create_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_auth__WEBPACK_IMPORTED_MODULE_10__["default"].state.token) {
@@ -87979,7 +88245,7 @@ var routes = [{
     next();
   }
 }, {
-  path: '/category/list',
+  path: '/admin/category/list',
   component: _components_admin_category_List_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_auth__WEBPACK_IMPORTED_MODULE_10__["default"].state.token) {
@@ -87991,7 +88257,7 @@ var routes = [{
     next();
   }
 }, {
-  path: '/category/edit/:cat_id',
+  path: '/admin/category/edit/:cat_id',
   component: _components_admin_category_Edit_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_auth__WEBPACK_IMPORTED_MODULE_10__["default"].state.token) {
@@ -88003,7 +88269,7 @@ var routes = [{
     next();
   }
 }, {
-  path: '/post/create',
+  path: '/admin/post/create',
   component: _components_admin_post_Create_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_auth__WEBPACK_IMPORTED_MODULE_10__["default"].state.token) {
@@ -88015,7 +88281,7 @@ var routes = [{
     next();
   }
 }, {
-  path: '/post/list',
+  path: '/admin/post/list',
   component: _components_admin_post_List_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_auth__WEBPACK_IMPORTED_MODULE_10__["default"].state.token) {
@@ -88027,7 +88293,7 @@ var routes = [{
     next();
   }
 }, {
-  path: '/post/edit/:post_id',
+  path: '/admin/post/edit/:post_id',
   component: _components_admin_post_Edit_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_auth__WEBPACK_IMPORTED_MODULE_10__["default"].state.token) {
@@ -88092,7 +88358,13 @@ __webpack_require__.r(__webpack_exports__);
     categories: function categories(state, data) {
       return state.category = data;
     },
+    searchCategoryByAdmin: function searchCategoryByAdmin(state, data) {
+      return state.category = data;
+    },
     posts: function posts(state, data) {
+      return state.post = data;
+    },
+    searchPostByAdmin: function searchPostByAdmin(state, data) {
       return state.post = data;
     },
     blogPosts: function blogPosts(state, data) {
@@ -88119,9 +88391,19 @@ __webpack_require__.r(__webpack_exports__);
         context.commit('categories', res.data);
       });
     },
+    adminSearchCategory: function adminSearchCategory(context, payload) {
+      axios.get('/admin/searchcategory?s=' + payload).then(function (res) {
+        context.commit('searchCategoryByAdmin', res.data);
+      });
+    },
     allPost: function allPost(context) {
       axios.get('/post').then(function (res) {
         context.commit('posts', res.data.posts);
+      });
+    },
+    adminSearchPost: function adminSearchPost(context, payload) {
+      axios.get('/admin/searchpost?s=' + payload).then(function (res) {
+        context.commit('searchPostByAdmin', res.data);
       });
     },
     allBlogPost: function allBlogPost(context) {
