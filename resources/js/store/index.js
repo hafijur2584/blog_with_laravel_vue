@@ -3,7 +3,7 @@ export default {
 	state: {
 		category: {},
 		post: {},
-		blogpost:[],
+		blogpost:{},
 		singlepost:[],
 		allCategoory:[]
 	},
@@ -93,8 +93,8 @@ export default {
 			})
 		}
 		,
-		allBlogPost(context){
-			axios.get('/blogpost')
+		allBlogPost(context,payload){
+			axios.get('/blogpost?page='+payload)
 			.then((res) => {
 				context.commit('blogPosts',res.data.blogposts)
 			})

@@ -3192,6 +3192,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3213,7 +3217,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getResults: function getResults(page) {
-      if (typeof page === 'undefined') {
+      if (typeof page === "undefined") {
         page = 1;
       }
 
@@ -3457,10 +3461,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.$store.dispatch("allBlogPost");
-  },
+  mounted: function mounted() {},
   computed: {
     blogpost: function blogpost() {
       return this.$store.getters.getBlogPost;
@@ -3469,11 +3491,21 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getAllCategoryPost: function getAllCategoryPost() {
       if (this.$route.params.id != null) {
-        this.$store.dispatch('allPostByCatId', this.$route.params.id);
+        this.$store.dispatch("allPostByCatId", this.$route.params.id);
       } else {
         this.$store.dispatch("allBlogPost");
       }
+    },
+    blogPosts: function blogPosts(page) {
+      if (typeof page === "undefined") {
+        page = 1;
+      }
+
+      this.$store.dispatch("allBlogPost", page);
     }
+  },
+  created: function created() {
+    this.blogPosts();
   },
   watch: {
     $route: function $route(to, from) {
@@ -8482,7 +8514,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.single-list .footer i {\r\n  margin-right: 10px!important;\n}\r\n", ""]);
+exports.push([module.i, "\n.single-list .footer i {\r\n  margin-right: 10px !important;\n}\r\n", ""]);
 
 // exports
 
@@ -69498,7 +69530,7 @@ var render = function() {
       "div",
       { staticClass: "post-lists" },
       [
-        _vm._l(_vm.blogpost, function(post) {
+        _vm._l(_vm.blogpost.data, function(post) {
           return _c(
             "div",
             { key: post.id, staticClass: "single-list flex-row d-flex" },
@@ -69567,30 +69599,25 @@ var render = function() {
           )
         }),
         _vm._v(" "),
-        _vm._m(0)
+        _c(
+          "div",
+          { staticClass: "justify-content-center d-flex" },
+          [
+            _c("pagination", {
+              attrs: { data: _vm.blogpost },
+              on: { "pagination-change-page": _vm.blogPosts }
+            })
+          ],
+          1
+        )
       ],
       2
     ),
     _vm._v(" "),
-    _vm._m(1)
+    _vm._m(0)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "justify-content-center d-flex" }, [
-      _c(
-        "a",
-        {
-          staticClass: "text-uppercase primary-btn loadmore-btn mt-40 mb-60",
-          attrs: { href: "#" }
-        },
-        [_vm._v("Load More Post")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -69621,7 +69648,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
+                  "\n              inappropriate behavior Lorem ipsum dolor sit amet,\n              consecteturinapprop riate behavior Lorem ipsum dolor sit amet,\n              consectetur.\n            "
                 )
               ]),
               _vm._v(" "),
@@ -69666,7 +69693,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur."
+                  "\n              inappropriate behavior Lorem ipsum dolor sit amet,\n              consecteturinapprop riate behavior Lorem ipsum dolor sit amet,\n              consectetur.\n            "
                 )
               ]),
               _vm._v(" "),
@@ -88729,7 +88756,7 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     category: {},
     post: {},
-    blogpost: [],
+    blogpost: {},
     singlepost: [],
     allCategoory: []
   },
@@ -88807,8 +88834,8 @@ __webpack_require__.r(__webpack_exports__);
         context.commit('searchPostByAdmin', res.data);
       });
     },
-    allBlogPost: function allBlogPost(context) {
-      axios.get('/blogpost').then(function (res) {
+    allBlogPost: function allBlogPost(context, payload) {
+      axios.get('/blogpost?page=' + payload).then(function (res) {
         context.commit('blogPosts', res.data.blogposts);
       });
     },

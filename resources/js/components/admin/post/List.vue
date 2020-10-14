@@ -54,7 +54,7 @@
                   </tr>
                 </thead>
                 <tbody v-if="getPost">
-                  <tr v-for="(post) in getPost.data" :key="post.id">
+                  <tr v-for="post in getPost.data" :key="post.id">
                     <td>{{ post.id }}</td>
                     <td>{{ post.title | sortForm(10, "...") }}</td>
                     <td v-if="post.user">{{ post.user.name }}</td>
@@ -93,13 +93,17 @@
               </table>
             </div>
 
-            
-
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-              <pagination class="float-right" v-if="getPost" :data="getPost" :limit="4" :size="'small'" @pagination-change-page="getResults"></pagination>
+              <pagination
+                class="float-right"
+                v-if="getPost"
+                :data="getPost"
+                :limit="4"
+                :size="'small'"
+                @pagination-change-page="getResults"
+              ></pagination>
             </div>
-            
           </div>
         </div>
       </div>
@@ -170,25 +174,22 @@ export default {
     };
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
   computed: {
     getPost() {
       return this.$store.getters.getPost;
     },
   },
   created() {
-            this.getResults();
-        },
+    this.getResults();
+  },
   methods: {
     getResults(page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
-                }
-                this.$store.dispatch("allPost",page);
-      
-            },
+      if (typeof page === "undefined") {
+        page = 1;
+      }
+      this.$store.dispatch("allPost", page);
+    },
     postSearch: _.debounce(function () {
       this.$store.dispatch("adminSearchPost", this.keyword);
     }, 1000),
