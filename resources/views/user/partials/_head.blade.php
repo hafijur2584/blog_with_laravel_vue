@@ -25,5 +25,5 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <base href = "http://localhost:8000">
+    <base href = "http://blog.test">
 </head>

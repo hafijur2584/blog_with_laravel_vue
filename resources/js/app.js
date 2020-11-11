@@ -9,7 +9,7 @@ import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 VueMarkdownEditor.use(vuepressTheme);
 Vue.use(VueMarkdownEditor);
 
-Axios.defaults.baseURL = 'http://localhost:8000/api'
+Axios.defaults.baseURL = 'http://blog.test/api'
 
 //support vuex
 import storeData from './store/index'
@@ -58,6 +58,7 @@ Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('navbar', require('./components/admin/layouts/Navbar.vue').default);
 Vue.component('sidebar', require('./components/admin/layouts/Sidebar.vue').default);
 Vue.component('betcon', require('./components/admin/layouts/Betcon.vue').default);
+Vue.component('footers', require('./components/admin/layouts/Footer.vue').default);
 
 
 const router = new VueRouter({
