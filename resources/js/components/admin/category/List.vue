@@ -31,13 +31,18 @@
               </form>
 
               <div style="margin-top: -2%" class="pull-right">
-                <router-link type="button" class="btn bg-gradient-success btn-sm text-white" to="/admin/category/create">Create</router-link>
+                <router-link
+                  type="button"
+                  class="btn bg-gradient-success btn-sm text-white"
+                  to="/admin/category/create"
+                  >Create</router-link
+                >
               </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table class="table table-bordered">
-                <thead>                  
+                <thead>
                   <tr>
                     <th style="width: 10px">SL</th>
                     <th>Name</th>
@@ -46,48 +51,80 @@
                   </tr>
                 </thead>
                 <tbody v-if="getCategtory.data">
-                  <tr v-for="(category) in getCategtory.data" :key="category.id">
-                    <td>{{category.id}}</td>
-                    <td width="300">{{category.name}}</td>
-                    <td width="300">{{category.created_at | timeFormat}}</td>
+                  <tr v-for="category in getCategtory.data" :key="category.id">
+                    <td>{{ category.id }}</td>
+                    <td width="300">{{ category.name }}</td>
+                    <td width="300">{{ category.created_at | timeFormat }}</td>
                     <td>
-                      <a style="cursor:pointer;margin-left:10px;" class="" data-toggle="modal" data-target="#viewModal" @click.prevent="showCategory(category)">
+                      <a
+                        style="cursor: pointer; margin-left: 10px"
+                        class=""
+                        data-toggle="modal"
+                        data-target="#viewModal"
+                        @click.prevent="showCategory(category)"
+                      >
                         <i class="fa fa-eye"></i>
                       </a>
-                      <router-link class="" :to="`/admin/category/edit/${category.id}`">
+                      <router-link
+                        class=""
+                        :to="`/admin/category/edit/${category.id}`"
+                      >
                         <i class="fa fa-edit"></i>
                       </router-link>
-                      <a style="cursor:pointer;margin-right:10px;" class="" @click.prevent="deleteCategory(category.id)">
+                      <a
+                        style="cursor: pointer; margin-right: 10px"
+                        class=""
+                        @click.prevent="deleteCategory(category.id)"
+                      >
                         <i class="fa fa-trash"></i>
                       </a>
                     </td>
-                    
                   </tr>
                 </tbody>
               </table>
             </div>
-                        
-                        <!-- /.card-body -->
+
+            <!-- /.card-body -->
             <div class="card-footer clearfix">
-              <pagination class="float-right" v-if="getCategtory" :data="getCategtory" :limit="4" :size="'small'" @pagination-change-page="getResults"></pagination>
+              <pagination
+                class="float-right"
+                v-if="getCategtory"
+                :data="getCategtory"
+                :limit="4"
+                :size="'small'"
+                @pagination-change-page="getResults"
+              ></pagination>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div
+      class="modal fade"
+      id="viewModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Category</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <span><strong>Category Name: </strong>{{name}}</span><br>
-            <span><strong>Date: </strong>{{date | timeFormat}}</span>
+            <span><strong>Category Name: </strong>{{ name }}</span
+            ><br />
+            <span><strong>Date: </strong>{{ date | timeFormat }}</span>
           </div>
         </div>
       </div>
@@ -103,80 +140,72 @@
 </style>
 
 <script>
-import _ from 'lodash'
+import _ from "lodash";
 export default {
-  data(){
-    return{
-      name:'',
-      date:'',
-      keyword:'',
-      laravelData:{}
-    }
+  data() {
+    return {
+      name: "",
+      date: "",
+      keyword: "",
+      laravelData: {},
+    };
   },
 
-  mounted() {
-    
-
-  },
-  computed:{
-    getCategtory(){
-      return this.$store.getters.getCategtory
-    }
-    
+  mounted() {},
+  computed: {
+    getCategtory() {
+      return this.$store.getters.getCategtory;
+    },
   },
   created() {
-            this.getResults();
-        },
-  methods:{
+    this.getResults();
+  },
+  methods: {
     getResults(page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
-                }
-                this.$store.dispatch("allCategory",page)
-      
-            },
-    CategorySearch:_.debounce(function () {
+      if (typeof page === "undefined") {
+        page = 1;
+      }
+      this.$store.dispatch("allCategory", page);
+    },
+    CategorySearch: _.debounce(function () {
       this.$store.dispatch("adminSearchCategory", this.keyword);
-    }, 1000),
-    
-    deleteCategory(id){
+    }, 1000)
+    ,
+
+    deleteCategory(id) {
       Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.value) {
-          axios.get('/category/destroy/'+id)
-          .then((res)=>{
-            this.$store.dispatch("allCategory")
-            Toast.fire({
-              icon: 'success',
-              title: 'File Deleted Successfully.'
+          axios
+            .get("/category/destroy/" + id)
+            .then((res) => {
+              this.$store.dispatch("allCategory");
+              Toast.fire({
+                icon: "success",
+                title: "File Deleted Successfully.",
+              });
             })
-          })
-          .catch(()=>{
-            Toast.fire({
-              icon: 'error',
-              title: 'Something!'
-            })
-          })
-
-
-          
+            .catch(() => {
+              Toast.fire({
+                icon: "error",
+                title: "Something!",
+              });
+            });
         }
-      })
-      
+      });
     },
-    showCategory(cat){
+    showCategory(cat) {
       this.name = cat.name;
-      this.date = cat.created_at
-    }
-  }
-}
-
+      this.date = cat.created_at;
+    },
+  },
+};
 </script>
 

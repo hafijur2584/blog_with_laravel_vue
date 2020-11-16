@@ -274,14 +274,13 @@ export default {
   mounted() {
     this.$store.dispatch("getPostById", this.$route.params.id);
   },
-  methods: {},
   computed: {
     post() {
       return this.$store.getters.getSinglePost;
-    },
+    }
   },
   components: {
     sidebar,
-  },
+  }
 };
 </script>

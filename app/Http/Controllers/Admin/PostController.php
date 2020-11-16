@@ -146,7 +146,7 @@ class PostController extends Controller
     public function searchPost(){
         $item = $_GET['s'];
         $posts = Post::with('category', 'user')->where('title','LIKE',"%$item%")
-        ->orWhere('description','LIKE',"%$item%")->get();
+        ->orWhere('description','LIKE',"%$item%")->paginate(5);
         return $posts;
     }
 }

@@ -68,7 +68,8 @@ export default {
 			})
 		},
 		adminSearchCategory(context,payload){
-			axios.get('/admin/searchcategory?s='+payload)
+			
+			axios.get('/admin/searchcategory?s=' + payload)
 			.then((res) => {
 				context.commit('searchCategoryByAdmin',res.data)
 			})
@@ -123,8 +124,11 @@ export default {
 				})
 		},
 		searchPost(context, payload){
-			axios.get('/search?s=' + payload)
+			axios.get('/search?s=' + payload,[
+				
+			])
 			.then((res) => {
+				console.log(res.data)
 				context.commit('searchByKey',res.data)
 			})
 		}

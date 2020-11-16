@@ -84,7 +84,7 @@ class CategoryController extends Controller
     }
     public function searchCategory(){
         $item = $_GET['s'];
-        $categories = Category::where('name','LIKE',"%$item%")->get();
+        $categories = Category::where('name','LIKE',"%$item%")->paginate(5);
         return $categories;
     }
 }
